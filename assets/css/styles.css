@@ -787,13 +787,19 @@ p {
   margin: 0;
   display: grid;
   gap: 0.9rem;
+  transition: opacity 320ms ease, transform 320ms ease;
+  will-change: opacity, transform;
+}
+
+.carousel-slide[hidden] {
+  display: none !important;
 }
 
 .carousel-slide__button {
   border: none;
   background: transparent;
   padding: 0;
-  cursor: zoom-in;
+  cursor: pointer;
 }
 
 .carousel-slide img {
@@ -804,6 +810,12 @@ p {
   background: var(--gallery-frame);
   border: 1px solid rgba(255, 255, 255, 0.12);
   padding: 0.4rem;
+  transition: transform var(--transition);
+}
+
+.carousel-slide__button:hover img,
+.carousel-slide__button:focus-visible img {
+  transform: translateY(-2px);
 }
 
 .carousel-slide__caption,
@@ -933,6 +945,8 @@ p {
 
 .resource-card {
   gap: 0.8rem;
+  align-content: start;
+  grid-auto-rows: min-content;
 }
 
 .resource-card--link {
@@ -993,6 +1007,7 @@ p {
   width: auto;
   min-height: 0;
   line-height: 1.1;
+  white-space: nowrap;
 }
 
 .resource-card--media .resource-card__button {

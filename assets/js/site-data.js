@@ -31,16 +31,15 @@ export const siteData = {
     }
   },
   profile: {
-    headline: "Empirical researcher",
     heroImage: "assets/images/portrait.jpg",
     portraitAlt: "Portrait of Taha Ibrahim Siddiqui in a striped shirt.",
     bio: [
-      "I am a Predoctoral Research Associate at Development Data Lab, where I work on data systems, archival records, and spatial evidence for research on public services in India.",
+      "I am a Predoctoral Research Associate at <a class=\"text-link\" href=\"https://www.devdatalab.org/\" target=\"_blank\" rel=\"noreferrer\">Development Data Lab</a>, where I work on data systems, archival records, and spatial evidence for research on public services in India.",
       "My earlier work with 3ie and r.i.c.e. focused on survey design, geospatial analysis, newborn health, and the day-to-day logistics that make field research possible.",
       "I studied economics at Jamia Millia Islamia. I am most interested in empirical work that stays close to ordinary lives and still has something useful to say about policy."
     ],
     docBio: [
-      "Taha Ibrahim Siddiqui is an empirical researcher based in New Delhi.",
+      "Taha Ibrahim Siddiqui is based in New Delhi.",
       "He has worked on newborn health, survey design, archival extraction, flood mapping, and public-service data in India.",
       "His writing has appeared in The India Forum, Outlook India, IDR, Maktoob Media, and The Citizen."
     ],
@@ -72,6 +71,7 @@ export const siteData = {
       period: "July 2025 - Present",
       role: "Predoctoral Research Associate",
       organization: "Development Data Lab",
+      organizationUrl: "https://www.devdatalab.org/",
       summary:
         "Works on data infrastructure for research on public services, including OCR pipelines, archival extraction, and administrative datasets.",
       bullets: [
@@ -160,7 +160,7 @@ export const siteData = {
       kind: "Working paper",
       year: 2026,
       collaborators:
-        "With Shwetangi Sahu, Devika Lakhote, Fiona Kastel, Lame Ungwang, Sara Ansari, and Theodora Benesch",
+        "With Shwetangi Sahu, Devika Lakhote, Fiona Kastel, Lame Ungwang, Sara Ansari, Paul Thissen, and Theodora Benesch",
       summary:
         "Examines how multilateral peacebuilding works in practice along the Sierra Leone-Guinea border, with a focus on farmer-herder disputes and the institutions built to settle them.",
       filters: ["paper", "political-economy", "public-policy"],
@@ -429,7 +429,7 @@ export const siteData = {
     home: {
       title: "Taha Ibrahim Siddiqui",
       description:
-        "Empirical social science research, public writing, fieldwork, and data by Taha Ibrahim Siddiqui."
+        "Research, public writing, fieldwork, and data by Taha Ibrahim Siddiqui."
     },
     research: {
       title: "Research | Taha Ibrahim Siddiqui",

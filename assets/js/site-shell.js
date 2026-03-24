@@ -162,7 +162,6 @@ function renderFooter() {
     <div class="shell site-footer__inner">
       <div>
         <p class="site-footer__title">${siteData.name}</p>
-        <p class="site-footer__text">${siteData.profile.headline}</p>
       </div>
       <div class="site-footer__meta">
         <a class="text-link" href="mailto:${siteData.email}">${siteData.email}</a>
@@ -326,10 +325,15 @@ export function initFilterButtons({ filterSelector, itemSelector, countSelector,
   }
 
   const applyFilter = (value) => {
+    const normalizedValue = String(value || "all").trim().toLowerCase();
     let visibleCount = 0;
+
     items.forEach((item) => {
-      const filters = item.dataset.filters.split(" ");
-      const match = value === "all" || filters.includes(value);
+      const filters = String(item.dataset.filters || "")
+        .toLowerCase()
+        .split(/\s+/)
+        .filter(Boolean);
+      const match = normalizedValue === "all" || filters.includes(normalizedValue);
       item.hidden = !match;
       item.classList.toggle("is-filter-hidden", !match);
       item.setAttribute("aria-hidden", String(!match));
@@ -339,7 +343,7 @@ export function initFilterButtons({ filterSelector, itemSelector, countSelector,
     });
 
     buttons.forEach((button) => {
-      const pressed = button.dataset.filter === value;
+      const pressed = button.dataset.filter === normalizedValue;
       button.classList.toggle("filter-button--active", pressed);
       button.setAttribute("aria-pressed", String(pressed));
     });
@@ -350,11 +354,11 @@ export function initFilterButtons({ filterSelector, itemSelector, countSelector,
   };
 
   buttons.forEach((button) => {
-    button.addEventListener("click", () => applyFilter(button.dataset.filter));
+    button.addEventListener("click", () => applyFilter(button.dataset.filter || "all"));
   });
 
   chips.forEach((chip) => {
-    chip.addEventListener("click", () => applyFilter(chip.dataset.chipFilter));
+    chip.addEventListener("click", () => applyFilter(chip.dataset.chipFilter || "all"));
   });
 
   applyFilter("all");
@@ -368,25 +372,36 @@ export function initGallery({
   dotSelector,
   thumbSelector,
   statusSelector,
+  openSelector,
   lightboxItems,
   autoPlayMs = 7000
 }) {
   const carousel = document.querySelector(carouselSelector);
   const slides = [...document.querySelectorAll(slideSelector)];
-  const dots = [...document.querySelectorAll(dotSelector)];
+  const dots = dotSelector ? [...document.querySelectorAll(dotSelector)] : [];
   const thumbs = thumbSelector ? [...document.querySelectorAll(thumbSelector)] : [];
   const prevButton = document.querySelector(prevSelector);
   const nextButton = document.querySelector(nextSelector);
   const statusNode = document.querySelector(statusSelector);
+  const openButtons = [
+    ...(openSelector ? [...document.querySelectorAll(openSelector)] : []),
+    ...[...document.querySelectorAll("[data-gallery-index]")]
+  ];
+  const advanceButtons = [...document.querySelectorAll("[data-gallery-advance]")];
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   let currentIndex = 0;
   let autoPlayTimer = null;
+  let isAnimating = false;
 
   const renderSlides = () => {
     slides.forEach((slide, index) => {
       const active = index === currentIndex;
       slide.hidden = !active;
       slide.classList.toggle("is-active", active);
+      slide.classList.remove("carousel-slide--leaving", "carousel-slide--entering");
+      slide.style.opacity = "";
+      slide.style.transform = "";
     });
 
     dots.forEach((dot, index) => {
@@ -406,6 +421,11 @@ export function initGallery({
     }
   };
 
+  const commitIndex = (nextIndex) => {
+    currentIndex = nextIndex;
+    renderSlides();
+  };
+
   const stopAutoPlay = () => {
     if (autoPlayTimer) {
       window.clearInterval(autoPlayTimer);
@@ -413,9 +433,52 @@ export function initGallery({
     }
   };
 
+  const goTo = (nextIndex, direction = 1) => {
+    if (!slides.length || isAnimating) {
+      return false;
+    }
+
+    const normalized = (nextIndex + slides.length) % slides.length;
+    if (normalized === currentIndex) {
+      return false;
+    }
+
+    const shouldAnimate = !prefersReducedMotion.matches;
+    if (!shouldAnimate) {
+      commitIndex(normalized);
+      return true;
+    }
+
+    const currentSlide = slides[currentIndex];
+    const targetSlide = slides[normalized];
+    const offset = direction >= 0 ? 42 : -42;
+
+    isAnimating = true;
+    targetSlide.hidden = false;
+    targetSlide.classList.add("is-active", "carousel-slide--entering");
+    currentSlide.classList.add("carousel-slide--leaving");
+    targetSlide.style.opacity = "0";
+    targetSlide.style.transform = `translateX(${offset}px) scale(0.985)`;
+    currentSlide.style.opacity = "1";
+    currentSlide.style.transform = "translateX(0) scale(1)";
+
+    window.requestAnimationFrame(() => {
+      targetSlide.style.opacity = "1";
+      targetSlide.style.transform = "translateX(0) scale(1)";
+      currentSlide.style.opacity = "0";
+      currentSlide.style.transform = `translateX(${offset * -1}px) scale(0.985)`;
+    });
+
+    window.setTimeout(() => {
+      isAnimating = false;
+      commitIndex(normalized);
+    }, 340);
+
+    return true;
+  };
+
   const step = (delta) => {
-    currentIndex = (currentIndex + delta + slides.length) % slides.length;
-    renderSlides();
+    goTo(currentIndex + delta, delta);
   };
 
   const startAutoPlay = () => {
@@ -442,16 +505,21 @@ export function initGallery({
 
     dots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
-        currentIndex = index;
-        renderSlides();
+        goTo(index, index > currentIndex ? 1 : -1);
         startAutoPlay();
       });
     });
 
     thumbs.forEach((thumb, index) => {
       thumb.addEventListener("click", () => {
-        currentIndex = index;
-        renderSlides();
+        goTo(index, index > currentIndex ? 1 : -1);
+        startAutoPlay();
+      });
+    });
+
+    advanceButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        step(1);
         startAutoPlay();
       });
     });
@@ -468,8 +536,7 @@ export function initGallery({
     startAutoPlay();
   }
 
-  const links = [...document.querySelectorAll("[data-gallery-index]")];
-  if (!links.length) {
+  if (!openButtons.length) {
     return;
   }
 
@@ -505,8 +572,7 @@ export function initGallery({
   };
 
   const open = (index) => {
-    currentIndex = index;
-    renderSlides();
+    commitIndex(index);
     renderLightbox();
     lightbox.classList.add("lightbox--open");
     lightbox.setAttribute("aria-hidden", "false");
@@ -522,15 +588,16 @@ export function initGallery({
   };
 
   const stepLightbox = (delta) => {
-    currentIndex = (currentIndex + delta + lightboxItems.length) % lightboxItems.length;
-    renderSlides();
+    const nextIndex = (currentIndex + delta + lightboxItems.length) % lightboxItems.length;
+    commitIndex(nextIndex);
     renderLightbox();
   };
 
-  links.forEach((link) => {
-    link.addEventListener("click", (event) => {
+  openButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
       event.preventDefault();
-      open(Number(link.dataset.galleryIndex));
+      const explicitIndex = Number(button.dataset.galleryIndex);
+      open(Number.isNaN(explicitIndex) ? currentIndex : explicitIndex);
     });
   });
 

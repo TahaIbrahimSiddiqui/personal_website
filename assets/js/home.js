@@ -15,6 +15,15 @@ const featuredResearch = [...siteData.papers, ...siteData.presentations]
   .slice(0, 2);
 const featuredWriting = siteData.writing.filter((item) => item.featured).slice(0, 2);
 const currentProjects = siteData.ongoingWork;
+const primaryExperience = siteData.experience[0];
+
+const renderOrganization = (experienceItem) => {
+  if (!experienceItem.organizationUrl) {
+    return experienceItem.organization;
+  }
+
+  return `<a class="text-link" href="${experienceItem.organizationUrl}" target="_blank" rel="noreferrer">${experienceItem.organization}</a>`;
+};
 
 const renderResearchCard = (item) => `
   <article class="story-card">
@@ -59,7 +68,6 @@ hero.innerHTML = `
   <div class="shell hero-grid">
     <div class="hero-copy">
       <h1>${siteData.name}</h1>
-      <p class="hero-copy__lede hero-copy__lede--title">${siteData.profile.headline}</p>
       <div class="hero-copy__body">
         ${siteData.profile.bio.map((paragraph) => `<p>${paragraph}</p>`).join("")}
       </div>
@@ -76,7 +84,7 @@ hero.innerHTML = `
       <div class="hero-stats">
         <article class="hero-stat">
           <span class="hero-stat__label">Current role</span>
-          <strong>${siteData.experience[0].role} at ${siteData.experience[0].organization}</strong>
+          <strong>${primaryExperience.role} at ${renderOrganization(primaryExperience)}</strong>
         </article>
         <article class="hero-stat">
           <span class="hero-stat__label">Research areas</span>
@@ -231,7 +239,7 @@ gallery.innerHTML = `
               <figure class="carousel-slide${index === 0 ? " is-active" : ""}" data-gallery-slide="${index}"${
                 index === 0 ? "" : " hidden"
               }>
-                <button class="carousel-slide__button" type="button" data-gallery-index="${index}" aria-label="Open image ${index + 1}: ${item.caption}">
+                <button class="carousel-slide__button" type="button" data-gallery-advance aria-label="Show next photo">
                   <img src="${item.src}" alt="${item.alt}">
                 </button>
                 <figcaption class="carousel-slide__caption">${item.caption}</figcaption>
@@ -243,6 +251,7 @@ gallery.innerHTML = `
       <div class="gallery-carousel__footer">
         <span class="gallery-carousel__status" id="gallery-status"></span>
         <div class="gallery-controls">
+          <button class="button button--ghost" id="gallery-open" type="button">View full image</button>
           <button class="button button--soft" id="gallery-prev" type="button">Previous</button>
           <button class="button button--soft" id="gallery-next" type="button">Next</button>
         </div>
@@ -300,6 +309,7 @@ initGallery({
   dotSelector: "[data-gallery-dot]",
   thumbSelector: "[data-gallery-thumb]",
   statusSelector: "#gallery-status",
+  openSelector: "#gallery-open",
   lightboxItems: siteData.gallery,
   autoPlayMs: 5000
 });
