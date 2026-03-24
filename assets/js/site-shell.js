@@ -308,7 +308,9 @@ export function initRevealAnimations() {
         }
       });
     },
-    { threshold: 0.18 }
+    // Large sections like the field carousel should fade in as soon as they enter view,
+    // rather than waiting for a big percentage of the block to be visible.
+    { threshold: 0.02 }
   );
 
   revealNodes.forEach((node) => observer.observe(node));
