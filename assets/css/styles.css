@@ -410,6 +410,7 @@ p {
   position: relative;
   display: grid;
   gap: 1rem;
+  align-content: start;
 }
 
 .portrait-card {
@@ -430,6 +431,48 @@ p {
   max-height: 34rem;
   object-fit: contain;
   border-radius: 20px;
+}
+
+.hero-video-card {
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.hero-video-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 10px solid rgba(255, 255, 255, 0.76);
+  box-shadow: var(--shadow);
+}
+
+.hero-video,
+.hero-video__poster {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  display: block;
+  border-radius: 18px;
+  object-fit: cover;
+  background: rgba(18, 26, 18, 0.3);
+}
+
+.hero-video__poster {
+  display: none;
+}
+
+.hero-video-frame--static .hero-video {
+  display: none;
+}
+
+.hero-video-frame--static .hero-video__poster {
+  display: block;
+}
+
+.hero-media__caption {
+  color: rgba(247, 244, 238, 0.78);
+  font-size: 0.95rem;
 }
 
 .hero-stats {
@@ -680,6 +723,63 @@ p {
   gap: 0.8rem;
 }
 
+.resource-card--link {
+  text-decoration: none;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition), background-color var(--transition);
+}
+
+.resource-card--link:hover,
+.resource-card--link:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(78, 90, 70, 0.28);
+}
+
+.resource-card--link:focus-visible {
+  outline: 3px solid rgba(78, 90, 70, 0.2);
+  outline-offset: 3px;
+}
+
+.resource-card--media {
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+}
+
+.resource-card__image {
+  background: rgba(255, 255, 255, 0.58);
+  border-bottom: 1px solid rgba(23, 33, 26, 0.08);
+}
+
+.resource-card__image img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  padding: 0.4rem;
+}
+
+.resource-card__image--contain img {
+  object-fit: contain;
+  background: rgba(245, 241, 232, 0.75);
+}
+
+.resource-card__body {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.resource-card--media .resource-card__body {
+  padding: 1.35rem 1.35rem 0;
+}
+
+.resource-card__button {
+  justify-self: start;
+  margin-top: auto;
+}
+
+.resource-card--media .resource-card__button {
+  margin: 0 1.35rem 1.35rem;
+}
+
 .article-card {
   padding: 0;
   overflow: hidden;
@@ -693,7 +793,9 @@ p {
 .article-card__media img {
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.58);
+  padding: 0.35rem;
 }
 
 .article-card__body {

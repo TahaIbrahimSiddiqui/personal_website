@@ -5,15 +5,40 @@ setupPage("resources");
 
 const hero = document.querySelector("#page-hero");
 const page = document.querySelector("#resources-page");
+const linkAttributes = (url) => (/^https?:\/\//.test(url) ? ' target="_blank" rel="noreferrer"' : "");
+
+const renderResourceCard = (item, ctaLabel) => {
+  const hasImage = Boolean(item.image);
+  const imageClass = hasImage ? ` resource-card__image--${item.imageFit || "cover"}` : "";
+
+  return `
+    <a class="resource-card resource-card--link${hasImage ? " resource-card--media" : ""}" href="${item.url}"${linkAttributes(item.url)}>
+      ${
+        hasImage
+          ? `
+            <div class="resource-card__image${imageClass}">
+              <img src="${item.image}" alt="${item.imageAlt}">
+            </div>
+          `
+          : ""
+      }
+      <div class="resource-card__body">
+        <p class="resource-card__meta">${item.type} &middot; ${item.access}</p>
+        <h2>${item.title}</h2>
+        <p>${item.note}</p>
+      </div>
+      <span class="button button--soft resource-card__button">${ctaLabel}</span>
+    </a>
+  `;
+};
 
 hero.innerHTML = `
   <div class="shell compact-hero">
     <div>
       <p class="eyebrow">Resources</p>
-      <h1>Datasets, documents, and a short profile note.</h1>
+      <h1>${siteData.pageIntro.resources.title}</h1>
       <p class="compact-hero__body">
-        The datasets now live in their own section, separate from supporting documents. I have also added
-        the short bio material from the Word document to this page.
+        ${siteData.pageIntro.resources.body}
       </p>
     </div>
     <div class="compact-hero__meta">
@@ -34,43 +59,19 @@ page.innerHTML = `
     <section class="listing-section">
       <div class="section-heading">
         <p class="eyebrow">Datasets</p>
-        <h2>Open data and repositories tied to current work.</h2>
+        <h2>Open datasets and code repositories.</h2>
       </div>
       <div class="resource-grid">
-        ${siteData.datasets
-          .map(
-            (item) => `
-              <article class="resource-card">
-                <p class="resource-card__meta">${item.type} &middot; ${item.access}</p>
-                <h2>${item.title}</h2>
-                <p>${item.note}</p>
-                <a class="button button--soft" href="${item.url}" target="_blank" rel="noreferrer">Open dataset</a>
-              </article>
-            `
-          )
-          .join("")}
+        ${siteData.datasets.map((item) => renderResourceCard(item, "Open dataset")).join("")}
       </div>
     </section>
     <section class="listing-section">
       <div class="section-heading">
         <p class="eyebrow">Documents</p>
-        <h2>Supporting files linked from the site.</h2>
+        <h2>Reference notes and site-linked documents.</h2>
       </div>
       <div class="resource-grid">
-        ${siteData.resources
-          .map(
-            (item) => `
-              <article class="resource-card">
-                <p class="resource-card__meta">${item.type} &middot; ${item.access}</p>
-                <h2>${item.title}</h2>
-                <p>${item.note}</p>
-                <a class="button button--soft" href="${item.url}"${
-                  /^https?:\/\//.test(item.url) ? ' target="_blank" rel="noreferrer"' : ""
-                }>Open resource</a>
-              </article>
-            `
-          )
-          .join("")}
+        ${siteData.resources.map((item) => renderResourceCard(item, "Open resource")).join("")}
       </div>
     </section>
     <div class="contact-grid contact-grid--top-gap">
@@ -81,8 +82,8 @@ page.innerHTML = `
       <article class="contact-card contact-card--soft">
         <p class="panel-card__kicker">Working with these materials</p>
         <p>
-          For collaboration, interpretation questions, or requests that go beyond the public files, email is
-          still the best route.
+          If you would like to talk through these materials, or if you need something that is not public here,
+          email is the best way to reach me.
         </p>
         <ul class="resource-list">
           <li><a class="text-link" href="research.html">Research archive</a></li>

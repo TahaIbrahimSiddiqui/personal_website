@@ -31,8 +31,23 @@ hero.innerHTML = `
       </div>
     </div>
     <div class="hero-media">
-      <figure class="portrait-card">
-        <img src="${siteData.profile.heroImage}" alt="${siteData.profile.portraitAlt}">
+      <figure class="hero-video-card">
+        <div class="hero-video-frame" data-hero-video-frame>
+          <video
+            class="hero-video"
+            data-hero-video
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="${siteData.heroVideo.poster}"
+            aria-label="${siteData.heroVideo.alt}"
+          >
+            <source src="${siteData.heroVideo.src}" type="video/webm">
+          </video>
+          <img class="hero-video__poster" src="${siteData.heroVideo.poster}" alt="${siteData.heroVideo.alt}">
+        </div>
+        <figcaption class="hero-media__caption">${siteData.heroVideo.caption}</figcaption>
       </figure>
       <div class="hero-stats">
         <article class="hero-stat">
@@ -40,38 +55,74 @@ hero.innerHTML = `
           <strong>${siteData.experience[0].role} at ${siteData.experience[0].organization}</strong>
         </article>
         <article class="hero-stat">
-          <span class="hero-stat__label">Research focus</span>
-          <strong>Development, public services, and the political economy of exclusion</strong>
+          <span class="hero-stat__label">Research areas</span>
+          <strong>Public services, inequality, health, and the political economy of exclusion</strong>
         </article>
         <article class="hero-stat">
           <span class="hero-stat__label">Public writing</span>
-          <strong>${siteData.writing.length} pieces across academic and public outlets</strong>
+          <strong>${siteData.writing.length} published essays and reported pieces</strong>
         </article>
       </div>
     </div>
   </div>
 `;
 
+const heroVideoFrame = hero.querySelector("[data-hero-video-frame]");
+const heroVideo = hero.querySelector("[data-hero-video]");
+
+if (heroVideoFrame && heroVideo) {
+  const motionMedia = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  const syncHeroVideo = () => {
+    const reduceMotion = motionMedia.matches;
+    heroVideoFrame.classList.toggle("hero-video-frame--static", reduceMotion);
+
+    if (reduceMotion) {
+      heroVideo.pause();
+      heroVideo.removeAttribute("autoplay");
+      return;
+    }
+
+    heroVideo.setAttribute("autoplay", "");
+    heroVideo
+      .play()
+      .then(() => {
+        heroVideoFrame.classList.remove("hero-video-frame--static");
+      })
+      .catch(() => {
+        heroVideoFrame.classList.add("hero-video-frame--static");
+      });
+  };
+
+  syncHeroVideo();
+
+  if (typeof motionMedia.addEventListener === "function") {
+    motionMedia.addEventListener("change", syncHeroVideo);
+  } else if (typeof motionMedia.addListener === "function") {
+    motionMedia.addListener(syncHeroVideo);
+  }
+}
+
 focus.innerHTML = `
   <div class="section-heading">
     <p class="eyebrow">Research focus</p>
-    <h2>Survey design, spatial evidence, and policy questions that stay close to everyday life.</h2>
+    <h2>Questions about public systems, care, exclusion, and how institutions meet everyday life.</h2>
   </div>
   <div class="two-column-grid">
     <article class="panel-card">
       <p class="panel-card__kicker">What I work on</p>
       ${renderTags(siteData.profile.interests)}
       <p>
-        Much of my work asks how public systems, documentation, service delivery, and political exclusion
-        shape the lived experience of low-income households and minorities.
+        Much of my work asks how documentation, public systems, service delivery, and political exclusion
+        shape the lives of low-income households and minorities.
       </p>
     </article>
     <article class="panel-card">
       <p class="panel-card__kicker">How I work</p>
       ${renderTags(siteData.profile.methods)}
       <p>
-        I combine fieldwork, survey design, geospatial analysis, and public-facing writing so research can
-        travel beyond the academic silo and still stay grounded in evidence.
+        I move between fieldwork, survey design, geospatial analysis, and public writing. I like research
+        that can speak across those worlds without losing the detail on the ground.
       </p>
     </article>
   </div>
@@ -80,7 +131,7 @@ focus.innerHTML = `
 work.innerHTML = `
   <div class="section-heading">
     <p class="eyebrow">Selected work</p>
-    <h2>A mix of academic research and public writing.</h2>
+    <h2>A few projects and essays.</h2>
   </div>
   <div class="card-grid">
     ${featuredResearch
@@ -125,7 +176,7 @@ work.innerHTML = `
 experience.innerHTML = `
   <div class="section-heading">
     <p class="eyebrow">Recent experience</p>
-    <h2>From field coordination to data infrastructure.</h2>
+    <h2>Recent work.</h2>
   </div>
   <div class="timeline">
     ${siteData.experience
@@ -150,10 +201,10 @@ gallery.innerHTML = `
   <div class="gallery-panel">
     <div class="section-heading section-heading--light">
       <p class="eyebrow">Field notes</p>
-      <h2>Images from the work behind the writing and analysis.</h2>
+      <h2>Scenes from the work itself.</h2>
       <p class="section-heading__body">
-        These images stay close to the places, routines, and relationships that make empirical work real.
-        The carousel keeps the full frame visible instead of cropping the photos down.
+        Fieldwork is rarely tidy. These photographs come from the roads, rooms, kitchens, hospitals, and
+        flood sites that sit behind the analysis.
       </p>
     </div>
     <div class="gallery-carousel" id="gallery-carousel">
@@ -205,10 +256,10 @@ contact.innerHTML = `
   <div class="contact-grid">
     <article class="contact-card">
       <p class="eyebrow">Contact</p>
-      <h2>Open to collaborative, field-driven research.</h2>
+      <h2>Open to collaborative, field-based research.</h2>
       <p>
-        If you are looking to collaborate on empirical work, public writing, or research design in South Asia,
-        I would be glad to hear from you.
+        If you are working on empirical research, public writing, or data projects in South Asia, feel free
+        to get in touch.
       </p>
       <div class="button-row">
         <a class="button" href="mailto:${siteData.email}">Email me</a>
@@ -216,7 +267,7 @@ contact.innerHTML = `
       </div>
     </article>
     <article class="contact-card contact-card--soft">
-      <p class="panel-card__kicker">Education and location</p>
+      <p class="panel-card__kicker">Education and base</p>
       <p><strong>${siteData.profile.education.degree}</strong></p>
       <p>${siteData.profile.education.institution} &middot; ${siteData.profile.education.period}</p>
       <p>${siteData.location}</p>

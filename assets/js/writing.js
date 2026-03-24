@@ -5,15 +5,16 @@ setupPage("writing");
 
 const hero = document.querySelector("#page-hero");
 const page = document.querySelector("#listing-page");
+const writingYears = siteData.writing.map((item) => item.year);
+const writingSpan = `${Math.min(...writingYears)} - ${Math.max(...writingYears)}`;
 
 hero.innerHTML = `
   <div class="shell compact-hero">
     <div>
       <p class="eyebrow">Writing</p>
-      <h1>Public scholarship with visual entry points.</h1>
+      <h1>${siteData.pageIntro.writing.title}</h1>
       <p class="compact-hero__body">
-        Each article card now carries a thumbnail so the writing page feels less like a plain list and more
-        like a readable archive of public-facing work.
+        ${siteData.pageIntro.writing.body}
       </p>
     </div>
     <div class="compact-hero__meta">
@@ -22,7 +23,7 @@ hero.innerHTML = `
         <span>published essays</span>
       </div>
       <div>
-        <strong>2021 - 2024</strong>
+        <strong>${writingSpan}</strong>
         <span>current span</span>
       </div>
     </div>

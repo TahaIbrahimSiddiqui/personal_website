@@ -6,15 +6,16 @@ setupPage("research");
 const hero = document.querySelector("#page-hero");
 const page = document.querySelector("#listing-page");
 const totalResearchItems = siteData.papers.length + siteData.presentations.length;
+const researchYears = [...siteData.papers, ...siteData.presentations].map((item) => item.year);
+const researchSpan = `${Math.min(...researchYears)} - ${Math.max(...researchYears)}`;
 
 hero.innerHTML = `
   <div class="shell compact-hero">
     <div>
       <p class="eyebrow">Research</p>
-      <h1>Papers first, presentations folded into the same project where possible.</h1>
+      <h1>${siteData.pageIntro.research.title}</h1>
       <p class="compact-hero__body">
-        The research page now avoids repeating the same project twice. If a paper also has a presentation,
-        those links stay together on one card instead of appearing as duplicate entries.
+        ${siteData.pageIntro.research.body}
       </p>
     </div>
     <div class="compact-hero__meta">
@@ -23,7 +24,7 @@ hero.innerHTML = `
         <span>research entries</span>
       </div>
       <div>
-        <strong>2022 - 2025</strong>
+        <strong>${researchSpan}</strong>
         <span>current public span</span>
       </div>
     </div>
@@ -34,8 +35,8 @@ page.innerHTML = `
   <div class="section-stack">
     <section class="listing-section">
       <div class="section-heading">
-        <p class="eyebrow">Paper</p>
-        <h2>Published and draft work with links kept on the same card.</h2>
+        <p class="eyebrow">Papers</p>
+        <h2>Published and draft work.</h2>
       </div>
       <div class="listing-grid">
         ${siteData.papers
@@ -58,7 +59,7 @@ page.innerHTML = `
     <section class="listing-section">
       <div class="section-heading">
         <p class="eyebrow">Presentations</p>
-        <h2>Standalone conference presentations and ongoing project talks.</h2>
+        <h2>Conference talks and work in progress.</h2>
       </div>
       <div class="listing-grid">
         ${siteData.presentations

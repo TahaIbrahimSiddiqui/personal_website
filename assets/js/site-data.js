@@ -4,26 +4,46 @@ export const siteData = {
   email: "Taha.i.siddiq@gmail.com",
   location: "New Delhi, India",
   cvPath: "assets/files/taha-resume-work.pdf",
+  heroVideo: {
+    src: "assets/media/india-street-hero.webm",
+    poster: "assets/images/datasets/delhi-street.jpg",
+    alt: "Street traffic and everyday movement in Mumbai.",
+    caption: "A street scene in Mumbai."
+  },
   navigation: [
     { label: "Home", href: "index.html", page: "home" },
     { label: "Research", href: "research.html", page: "research" },
     { label: "Writing", href: "writing.html", page: "writing" },
     { label: "Resources", href: "resources.html", page: "resources" }
   ],
+  pageIntro: {
+    research: {
+      title: "Research",
+      body: "Papers, presentations, and ongoing work on public services, exclusion, health, and development in India."
+    },
+    writing: {
+      title: "Writing",
+      body: "Essays, commentary, and public-facing work on policy, care, inequality, and representation."
+    },
+    resources: {
+      title: "Data and documents",
+      body: "Datasets, notes, and supporting documents connected to current work."
+    }
+  },
   profile: {
     headline:
-      "Empirical social scientist and predoctoral research associate working on public services, inequality, and development in South Asia.",
+      "Empirical social scientist working on public services, inequality, and development in South Asia.",
     heroImage: "assets/images/portrait.jpg",
     portraitAlt: "Portrait of Taha Ibrahim Siddiqui in a striped shirt.",
     bio: [
-      "I am currently a Predoctoral Research Associate at Development Data Lab, where I work on data systems, archival extraction, and spatial evidence on public services and development in India.",
-      "Before that I worked with 3ie and r.i.c.e. on survey design, geospatial analysis, newborn health, and field-led research operations. My research interests sit across health, development, and the political economy of exclusion.",
-      "I hold a B.A. (Hons.) in Economics from Jamia Millia Islamia and care most about empirical work that stays close to field realities while still speaking to policy and public debate."
+      "I am a Predoctoral Research Associate at Development Data Lab, where I work on data systems, archival records, and spatial evidence for research on public services in India.",
+      "My earlier work with 3ie and r.i.c.e. focused on survey design, geospatial analysis, newborn health, and the day-to-day logistics that make field research possible.",
+      "I studied economics at Jamia Millia Islamia. I am most interested in empirical work that stays close to ordinary lives and still has something useful to say about policy."
     ],
     docBio: [
-      "Taha Ibrahim Siddiqui holds a B.A. (Hons.) in Economics from Jamia Millia Islamia.",
-      "Prior to his current role, he worked as a research assistant at r.i.c.e., where he worked on neonatal health, designed and implemented surveys, and supported data-driven decision-making.",
-      "His research spans health economics, development economics, and the political economy of development, and he has bylines in India Forum, Outlook, and Maktoob."
+      "Taha Ibrahim Siddiqui is an empirical social scientist based in New Delhi.",
+      "He has worked on newborn health, survey design, archival extraction, flood mapping, and public-service data in India.",
+      "His writing has appeared in The India Forum, Outlook India, IDR, Maktoob Media, and The Citizen."
     ],
     interests: [
       "Development economics",
@@ -46,7 +66,7 @@ export const siteData = {
       score: "8.2 / 10.0"
     },
     aside:
-      "Outside work, I am usually happiest at a food stall in Delhi or somewhere in the middle of an unfolding public conversation."
+      "Outside work, I am usually somewhere around Delhi, eating street food or following a long argument about politics, history, or cricket."
   },
   experience: [
     {
@@ -54,11 +74,11 @@ export const siteData = {
       role: "Predoctoral Research Associate",
       organization: "Development Data Lab",
       summary:
-        "Builds data systems for public-service and development research, including OCR workflows, archival extraction, and structured data pipelines.",
+        "Works on data infrastructure for research on public services, including OCR pipelines, archival extraction, and administrative datasets.",
       bullets: [
-        "Designed a pipeline to scrape and structure data from dynamic government dashboards.",
-        "Built LLM-assisted archival extraction workflows for historical records and administrative evolution keys.",
-        "Supports manuscript revision, replication-package work, and analysis refinement on ongoing DDL research."
+        "Built a pipeline to scrape and structure data from dynamic government dashboards.",
+        "Set up archival extraction workflows for historical records and administrative change keys.",
+        "Supports manuscript revision, replication work, and analysis on ongoing DDL projects."
       ]
     },
     {
@@ -66,9 +86,9 @@ export const siteData = {
       role: "Academic Research Mentor",
       organization: "Department of Computer Science, Ashoka University (part-time)",
       summary:
-        "Leads student research on flood mapping and open geospatial data systems for climate-vulnerable states in India.",
+        "Mentors student research on flood mapping and open geospatial workflows for climate-vulnerable states in India.",
       bullets: [
-        "Guides daily spatial flood inundation mapping workflows.",
+        "Guides daily flood inundation mapping workflows.",
         "Develops an open-source pipeline using satellite data for reproducible flood mapping."
       ]
     },
@@ -77,10 +97,10 @@ export const siteData = {
       role: "Research Assistant",
       organization: "International Initiative for Impact Evaluation (3ie)",
       summary:
-        "Worked across geospatial analysis, evaluation design, survey instruments, and research reporting with multiple project partners.",
+        "Worked on evaluation design, survey instruments, spatial analysis, and research reporting across multiple projects.",
       bullets: [
         "Conducted causal and geospatial analyses and supported evaluation design.",
-        "Drafted survey instruments, briefs, reports, and training materials for varied audiences."
+        "Drafted survey instruments, briefs, reports, and training materials."
       ]
     },
     {
@@ -88,7 +108,7 @@ export const siteData = {
       role: "Field Research Assistant",
       organization: "r.i.c.e.",
       summary:
-        "Led longitudinal phone-survey work on newborn care and managed end-to-end research operations.",
+        "Ran longitudinal phone-survey work on newborn care and helped manage research operations.",
       bullets: [
         "Designed and ran follow-up surveys tracking families after a newborn-care intervention.",
         "Managed data-entry teams, HR workflows, and database quality for a 40-member team."
@@ -99,7 +119,7 @@ export const siteData = {
       role: "Research Intern",
       organization: "Department of Economics, UC Berkeley",
       summary:
-        "Supported questionnaire design, real-time data analysis, field coordination, and early-stage research documentation.",
+        "Supported questionnaire design, incoming data review, field coordination, and early project documentation.",
       bullets: [
         "Refined survey instruments through incoming data analysis and qualitative research.",
         "Supervised campus coordinators and assisted with reports, presentations, and documentation."
@@ -113,7 +133,7 @@ export const siteData = {
       year: 2022,
       collaborators: "Solo author",
       summary:
-        "Examines how missing documentation, insecure income, weak safety nets, and poor access to formal lending shape informal indebtedness among low-income households in Delhi.",
+        "Looks at why low-income households in Delhi rely on informal credit, with a focus on documentation, unstable incomes, and weak access to formal lending.",
       filters: ["paper", "political-economy", "urban-poverty"],
       links: [
         {
@@ -143,7 +163,7 @@ export const siteData = {
       year: 2025,
       collaborators: "20th Annual Conference on Economic Growth and Development, Indian Statistical Institute",
       summary:
-        "Presents causal evidence on whether local discretionary spending under the Model Village Scheme reflects religious bias in India.",
+        "Studies whether local discretionary spending under the Model Village Scheme reflects religious bias in India.",
       filters: ["presentation", "political-economy", "minorities"],
       links: [],
       featured: true,
@@ -156,7 +176,7 @@ export const siteData = {
       year: 2024,
       collaborators: "With N. Srivastava",
       summary:
-        "Explores how ambient temperature correlates with neonatal body-temperature measurements in a public hospital setting, with implications for newborn care and measurement.",
+        "Looks at how ambient temperature and measured body temperature move together for neonates in a public hospital in Uttar Pradesh.",
       filters: ["presentation", "health", "survey-methods"],
       links: [],
       featured: true,
@@ -170,7 +190,7 @@ export const siteData = {
       year: 2024,
       collaborators: "With M. K. Khan",
       summary:
-        "Reflects on electoral design and representation, asking whether the current way of electing MPs still serves democratic accountability well.",
+        "A piece on electoral design, representation, and whether the current way of electing MPs still serves democratic accountability.",
       filters: ["political-economy", "public-policy"],
       url: "https://www.theindiaforum.in/forum/it-time-change-way-we-elect-our-mps",
       featured: true,
@@ -183,7 +203,7 @@ export const siteData = {
       year: 2024,
       collaborators: "With K. Satheesh",
       summary:
-        "Reports on how subsidised community kitchens matter not just for hunger relief, but for dignity, public space, and urban welfare delivery.",
+        "Reports on how subsidised community kitchens shape hunger relief, dignity, and everyday urban welfare.",
       filters: ["urban-poverty", "public-policy"],
       url: "https://www.outlookindia.com/national/how-rajasthan-indira-rasois-serve-food-and-dignity-to-urban-poor-weekender_story-341280",
       featured: true,
@@ -196,7 +216,7 @@ export const siteData = {
       year: 2023,
       collaborators: "With N. Nair and D. Coffey",
       summary:
-        "Explores how families of high-risk newborns navigate healthcare demand, risk, and decision-making when access to care is fragile.",
+        "Explores how families of high-risk newborns think about care when access is fragile and treatment decisions are hard.",
       filters: ["health", "public-policy"],
       url: "https://www.theindiaforum.in/health/understanding-demand-healthcare-among-families-high-risk-newborns",
       featured: true,
@@ -209,7 +229,7 @@ export const siteData = {
       year: 2023,
       collaborators: "Solo author",
       summary:
-        "Argues for taking fathers' caregiving roles seriously in social programs and public conversations about care work.",
+        "Argues for taking fathers' caregiving roles seriously in social programmes and public conversations about care work.",
       filters: ["gender", "health"],
       url: "https://idronline.org/ground-up-stories/a-mans-job-the-need-to-include-fathers-in-caregiving/",
       featured: true,
@@ -235,7 +255,7 @@ export const siteData = {
       year: 2021,
       collaborators: "Solo author",
       summary:
-        "Traces how the pandemic-era cost of connectivity compounded exclusion from schooling, nutrition, and everyday social participation.",
+        "Traces how the cost of connectivity during the pandemic deepened exclusion from schooling, nutrition, and everyday social life.",
       filters: ["education", "inequality"],
       url: "https://www.thecitizen.in/index.php/en/NewsDetail/index/9/21017/Internet-Expenses-Keep-Many-Out-of-School-Meals-and-Social-Equity-Also-Take-a-Hit?infinitescroll=1",
       featured: false,
@@ -248,22 +268,31 @@ export const siteData = {
       title: "Bihar Flood Inundation Panel Dataset (1998-2021)",
       type: "GitHub repository",
       access: "Open access",
-      note: "Panel dataset for flood inundation work and reproducible spatial analysis.",
-      url: "https://github.com/TahaIbrahimSiddiqui/Bihar_flood_panel.git"
+      note: "Panel data and code for flood inundation work in Bihar.",
+      url: "https://github.com/TahaIbrahimSiddiqui/Bihar_flood_panel.git",
+      image: "assets/images/fieldwork-06.jpg",
+      imageAlt: "Flooded street scene used as the cover image for the Bihar flood dataset.",
+      imageFit: "cover"
     },
     {
       title: "All India Villages Matched to Corresponding Parliamentary Constituency Linked to SHRUG",
       type: "GitHub repository",
       access: "Open access",
-      note: "Village-to-parliamentary-constituency matching resource linked to SHRUG.",
-      url: "https://github.com/TahaIbrahimSiddiqui/Shrug_lok_sabha"
+      note: "Village-to-parliamentary-constituency crosswalk linked to SHRUG.",
+      url: "https://github.com/TahaIbrahimSiddiqui/Shrug_lok_sabha",
+      image: "assets/images/datasets/india-map.svg",
+      imageAlt: "Locator map of India used as the cover image for the constituency matching dataset.",
+      imageFit: "contain"
     },
     {
       title: "Urban Poor Indebtedness - Delhi Dataset",
       type: "Google Sheet",
       access: "Open access",
-      note: "Dataset connected to the informal-credit study.",
-      url: "https://docs.google.com/spreadsheets/d/103DWLPISa8XKKu_z5C5hd49Ou9I_MH9F3uOtnngfE1Q/edit?usp=sharing"
+      note: "Sheet linked to the Delhi informal-credit study.",
+      url: "https://docs.google.com/spreadsheets/d/103DWLPISa8XKKu_z5C5hd49Ou9I_MH9F3uOtnngfE1Q/edit?usp=sharing",
+      image: "assets/images/datasets/delhi-street.jpg",
+      imageAlt: "Delhi street scene used as the cover image for the urban indebtedness dataset.",
+      imageFit: "cover"
     }
   ],
   resources: [
@@ -271,8 +300,15 @@ export const siteData = {
       title: "Current Work CV",
       type: "PDF",
       access: "Local copy",
-      note: "Work-focused CV linked throughout this site.",
+      note: "Work-focused CV linked throughout the site.",
       url: "assets/files/taha-resume-work.pdf"
+    },
+    {
+      title: "Project and dataset note",
+      type: "Google Doc",
+      access: "Reference document",
+      note: "Working note with project context and dataset details.",
+      url: "https://docs.google.com/document/d/1-CvlPvdr-gIwx8jTzTzzP-0zvaRAKihXAgH3oBpa4p4/edit?tab=t.0"
     },
     {
       title: "Confidentiality Agreement",
@@ -318,7 +354,7 @@ export const siteData = {
     home: {
       title: "Taha Ibrahim Siddiqui",
       description:
-        "Empirical social science research, public writing, fieldwork, and datasets by Taha Ibrahim Siddiqui."
+        "Empirical social science research, public writing, fieldwork, and data by Taha Ibrahim Siddiqui."
     },
     research: {
       title: "Research | Taha Ibrahim Siddiqui",
