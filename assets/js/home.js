@@ -176,8 +176,8 @@ work.innerHTML = `
 
 experience.innerHTML = `
   <div class="section-heading">
-    <p class="eyebrow">Recent experience</p>
-    <h2>Recent work.</h2>
+    <p class="eyebrow">Experience</p>
+    <h2>Work experience.</h2>
   </div>
   <div class="timeline">
     ${siteData.experience
@@ -201,11 +201,10 @@ experience.innerHTML = `
 gallery.innerHTML = `
   <div class="gallery-panel">
     <div class="section-heading section-heading--light">
-      <p class="eyebrow">Field notes</p>
-      <h2>Scenes from the work itself.</h2>
+      <p class="eyebrow">Fieldwork</p>
+      <h2>Glimpses from the field.</h2>
       <p class="section-heading__body">
-        Fieldwork is rarely tidy. These photographs come from the roads, rooms, kitchens, hospitals, and
-        flood sites that sit behind the analysis.
+        A slideshow from field visits, survey work, public kitchens, hospitals, and flood-affected sites.
       </p>
     </div>
     <div class="gallery-carousel" id="gallery-carousel">
@@ -284,6 +283,7 @@ initGallery({
   nextSelector: "#gallery-next",
   dotSelector: "[data-gallery-dot]",
   statusSelector: "#gallery-status",
-  lightboxItems: siteData.gallery
+  lightboxItems: siteData.gallery,
+  autoPlayMs: 5000
 });
 initRevealAnimations();
