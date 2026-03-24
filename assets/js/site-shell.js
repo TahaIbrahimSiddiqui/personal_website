@@ -553,7 +553,6 @@ export function initGallery({
       <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Previous image">Prev</button>
       <figure class="lightbox__figure">
         <img class="lightbox__image" alt="">
-        <figcaption class="lightbox__caption"></figcaption>
       </figure>
       <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Next image">Next</button>
     </div>
@@ -561,7 +560,6 @@ export function initGallery({
 
   const lightbox = root.querySelector(".lightbox");
   const image = root.querySelector(".lightbox__image");
-  const caption = root.querySelector(".lightbox__caption");
   const closeButton = root.querySelector(".lightbox__close");
   const prevNav = root.querySelector(".lightbox__nav--prev");
   const nextNav = root.querySelector(".lightbox__nav--next");
@@ -570,7 +568,6 @@ export function initGallery({
     const item = lightboxItems[currentIndex];
     image.src = item.src;
     image.alt = item.alt;
-    caption.textContent = item.caption;
   };
 
   const open = (index) => {

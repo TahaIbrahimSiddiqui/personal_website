@@ -242,7 +242,6 @@ gallery.innerHTML = `
                 <button class="carousel-slide__button" type="button" data-gallery-advance aria-label="Show next photo">
                   <img src="${item.src}" alt="${item.alt}">
                 </button>
-                <figcaption class="carousel-slide__caption">${item.caption}</figcaption>
               </figure>
             `
           )
