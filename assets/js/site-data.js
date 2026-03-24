@@ -391,10 +391,10 @@ export const siteData = {
       url: "assets/files/taha-resume-work.pdf"
     },
     {
-      title: "Project and dataset note",
+      title: "RA interview resource for Dalit, Adivasi, and Muslim students",
       type: "Google Doc",
       access: "Reference document",
-      note: "Working note with project context and dataset details.",
+      note: "Interview resource for work and conversations focused on Dalit, Adivasi, and Muslim students.",
       url: "https://docs.google.com/document/d/1-CvlPvdr-gIwx8jTzTzzP-0zvaRAKihXAgH3oBpa4p4/edit?tab=t.0"
     },
     {
