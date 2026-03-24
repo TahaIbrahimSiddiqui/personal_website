@@ -8,6 +8,7 @@ const themeOptions = [
 ];
 
 const themeStorageKey = "tis-theme";
+const previousThemeStorageKey = "tis-theme-previous";
 
 function linkAttributes(link) {
   const external = link.external || /^https?:\/\//.test(link.url);
@@ -27,6 +28,35 @@ function getSavedTheme() {
   return themeOptions[0].value;
 }
 
+function getLastNonNightTheme() {
+  try {
+    const stored = window.localStorage.getItem(previousThemeStorageKey);
+    if (stored && stored !== "night" && themeOptions.some((theme) => theme.value === stored)) {
+      return stored;
+    }
+  } catch (error) {
+    // Ignore storage access issues and fall back to the default theme.
+  }
+
+  return themeOptions[0].value;
+}
+
+function syncThemeControls(selectedTheme) {
+  const select = document.querySelector("#theme-select");
+  if (select) {
+    select.value = selectedTheme;
+  }
+
+  const toggle = document.querySelector("#night-toggle");
+  if (toggle) {
+    const isNight = selectedTheme === "night";
+    toggle.setAttribute("aria-pressed", String(isNight));
+    toggle.textContent = isNight ? "Day" : "Night";
+    toggle.setAttribute("aria-label", isNight ? "Switch back from night mode" : "Switch to night mode");
+    toggle.classList.toggle("theme-toggle--active", isNight);
+  }
+}
+
 function setTheme(theme) {
   const selectedTheme = themeOptions.some((option) => option.value === theme)
     ? theme
@@ -42,9 +72,14 @@ function setTheme(theme) {
 
   try {
     window.localStorage.setItem(themeStorageKey, selectedTheme);
+    if (selectedTheme !== "night") {
+      window.localStorage.setItem(previousThemeStorageKey, selectedTheme);
+    }
   } catch (error) {
     // Ignore storage access issues and keep the page functional.
   }
+
+  syncThemeControls(selectedTheme);
 }
 
 export function setupPage(pageKey) {
@@ -54,6 +89,8 @@ export function setupPage(pageKey) {
   applyMeta(pageKey);
   bindMobileMenu();
   bindThemeSelector();
+  bindNightToggle();
+  syncThemeControls(document.body.dataset.theme || themeOptions[0].value);
 }
 
 function renderHeader(pageKey) {
@@ -95,6 +132,15 @@ function renderHeader(pageKey) {
                 .join("")}
             </select>
           </label>
+          <button
+            class="theme-toggle${activeTheme === "night" ? " theme-toggle--active" : ""}"
+            type="button"
+            id="night-toggle"
+            aria-pressed="${activeTheme === "night"}"
+            aria-label="${activeTheme === "night" ? "Switch back from night mode" : "Switch to night mode"}"
+          >
+            ${activeTheme === "night" ? "Day" : "Night"}
+          </button>
           <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
             Menu
           </button>
@@ -183,6 +229,23 @@ function bindThemeSelector() {
 
   select.addEventListener("change", () => {
     setTheme(select.value);
+  });
+}
+
+function bindNightToggle() {
+  const toggle = document.querySelector("#night-toggle");
+  if (!toggle) {
+    return;
+  }
+
+  toggle.addEventListener("click", () => {
+    const currentTheme = document.body.dataset.theme || themeOptions[0].value;
+    if (currentTheme === "night") {
+      setTheme(getLastNonNightTheme());
+      return;
+    }
+
+    setTheme("night");
   });
 }
 
