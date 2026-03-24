@@ -112,7 +112,6 @@ function renderHeader(pageKey) {
     <div class="shell">
       <div class="site-header__inner">
         <a class="brand" href="index.html" aria-label="Go to homepage">
-          <span class="brand__eyebrow">Empirical social scientist</span>
           <span class="brand__name">${siteData.shortName}</span>
         </a>
         <div class="site-header__cluster">
@@ -332,6 +331,8 @@ export function initFilterButtons({ filterSelector, itemSelector, countSelector,
       const filters = item.dataset.filters.split(" ");
       const match = value === "all" || filters.includes(value);
       item.hidden = !match;
+      item.classList.toggle("is-filter-hidden", !match);
+      item.setAttribute("aria-hidden", String(!match));
       if (match) {
         visibleCount += 1;
       }

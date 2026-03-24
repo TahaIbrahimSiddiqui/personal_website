@@ -58,9 +58,8 @@ hero.innerHTML = `
   </div>
   <div class="shell hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow">Empirical social scientist</p>
       <h1>${siteData.name}</h1>
-      <p class="hero-copy__lede">${siteData.profile.headline}</p>
+      <p class="hero-copy__lede hero-copy__lede--title">${siteData.profile.headline}</p>
       <div class="hero-copy__body">
         ${siteData.profile.bio.map((paragraph) => `<p>${paragraph}</p>`).join("")}
       </div>
@@ -273,7 +272,7 @@ contact.innerHTML = `
   <div class="contact-grid">
     <article class="contact-card">
       <p class="eyebrow">Contact</p>
-      <h2>Open to collaborative, field-based research.</h2>
+      <h2>Open for collaborative work.</h2>
       <p>
         If you are working on empirical research, public writing, or data projects in South Asia, feel free
         to get in touch.

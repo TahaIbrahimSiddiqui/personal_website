@@ -31,8 +31,7 @@ export const siteData = {
     }
   },
   profile: {
-    headline:
-      "Empirical social scientist working on public services, inequality, and development in South Asia.",
+    headline: "Empirical researcher",
     heroImage: "assets/images/portrait.jpg",
     portraitAlt: "Portrait of Taha Ibrahim Siddiqui in a striped shirt.",
     bio: [
@@ -41,7 +40,7 @@ export const siteData = {
       "I studied economics at Jamia Millia Islamia. I am most interested in empirical work that stays close to ordinary lives and still has something useful to say about policy."
     ],
     docBio: [
-      "Taha Ibrahim Siddiqui is an empirical social scientist based in New Delhi.",
+      "Taha Ibrahim Siddiqui is an empirical researcher based in New Delhi.",
       "He has worked on newborn health, survey design, archival extraction, flood mapping, and public-service data in India.",
       "His writing has appeared in The India Forum, Outlook India, IDR, Maktoob Media, and The Citizen."
     ],
