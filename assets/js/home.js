@@ -1,5 +1,5 @@
-import { siteData } from "./site-data.js";
-import { setupPage, renderTags, renderLinks, initRevealAnimations, initGallery } from "./site-shell.js";
+import { siteData } from "./site-data.js?v=20260325d";
+import { setupPage, renderTags, renderLinks, initRevealAnimations, initGallery } from "./site-shell.js?v=20260325d";
 
 setupPage("home");
 
@@ -158,6 +158,19 @@ focus.innerHTML = `
       </p>
     </article>
   </div>
+  <article class="panel-card quote-panel">
+    <p class="panel-card__kicker">A line to keep in view</p>
+    <blockquote class="quote-panel__block">
+      <p class="quote-panel__lead">"${siteData.profile.quote.heisenberg}"</p>
+      <footer class="quote-panel__attribution">${siteData.profile.quote.heisenbergAttribution}</footer>
+    </blockquote>
+    <blockquote class="quote-panel__block quote-panel__block--iqbal">
+      <p class="quote-panel__original">${siteData.profile.quote.iqbalOriginal.replace(/\n/g, "<br>")}</p>
+      <p class="quote-panel__transliteration">${siteData.profile.quote.iqbalTransliteration.replace(/\n/g, "<br>")}</p>
+      <p class="quote-panel__translation">"${siteData.profile.quote.iqbalTranslation}"</p>
+      <footer class="quote-panel__attribution">${siteData.profile.quote.iqbalAttribution}</footer>
+    </blockquote>
+  </article>
 `;
 
 work.innerHTML = `

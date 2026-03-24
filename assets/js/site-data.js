@@ -38,6 +38,18 @@ export const siteData = {
       "My earlier work with 3ie and r.i.c.e. focused on survey design, geospatial analysis, newborn health, and the day-to-day logistics that make field research possible.",
       "I studied economics at Jamia Millia Islamia. I am most interested in empirical work that stays close to ordinary lives and still has something useful to say about policy."
     ],
+    quote: {
+      heisenberg:
+        "We have to remember that what we observe is not nature in itself but nature exposed to our method of questioning.",
+      heisenbergAttribution: "Werner Heisenberg",
+      iqbalOriginal:
+        "حکیم و عارف و صوفی تمام مستِ ظہور\nکسے خبر کہ تجلی ہے عینِ مستوری",
+      iqbalTransliteration:
+        "hakim o arif o sufi tamam mast-e-zuhur\nkise khabar ki tajalli hai ayn-e-masturi",
+      iqbalTranslation:
+        "The philosopher, gnostic, and mystic are all intoxicated by appearance; who knows that manifestation itself may be a form of veiling?",
+      iqbalAttribution: "Allama Iqbal"
+    },
     docBio: [
       "Taha Ibrahim Siddiqui is based in New Delhi.",
       "He has worked on newborn health, survey design, archival extraction, flood mapping, and public-service data in India.",

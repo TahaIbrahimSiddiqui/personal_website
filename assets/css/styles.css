@@ -759,6 +759,42 @@ p {
   font-weight: 700;
 }
 
+.quote-panel {
+  margin-top: 1.5rem;
+  gap: 1.25rem;
+}
+
+.quote-panel__block {
+  margin: 0;
+  display: grid;
+  gap: 0.7rem;
+}
+
+.quote-panel__lead,
+.quote-panel__translation {
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.25rem, 2.1vw, 1.7rem);
+  line-height: 1.35;
+}
+
+.quote-panel__original {
+  font-family: "Fraunces", serif;
+  font-size: clamp(1.25rem, 2.3vw, 1.85rem);
+  line-height: 1.55;
+}
+
+.quote-panel__transliteration {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.quote-panel__attribution {
+  color: var(--clay);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .timeline-card__list,
 .resource-list {
   margin: 0;
