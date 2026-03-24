@@ -1,5 +1,5 @@
-import { siteData } from "./site-data.js?v=20260325d";
-import { setupPage, renderTags, initRevealAnimations, initFilterButtons } from "./site-shell.js?v=20260325d";
+import { siteData } from "./site-data.js?v=20260325f";
+import { setupPage, renderTags, initRevealAnimations, initFilterButtons } from "./site-shell.js?v=20260325f";
 
 setupPage("writing");
 

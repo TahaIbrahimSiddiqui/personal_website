@@ -240,6 +240,21 @@ export const siteData = {
       ]
     },
     {
+      title: "High-resolution measurement of extreme flood exposure and child nutrition in India",
+      kind: "Current project",
+      year: 2026,
+      status: "In progress",
+      summary:
+        "Measures extreme flood exposure at high spatial resolution and studies how those shocks shape child nutrition outcomes across India.",
+      filters: ["ongoing", "health", "geospatial"],
+      links: [
+        {
+          label: "Mail for latest version",
+          url: "mailto:Taha.i.siddiq@gmail.com?subject=Latest%20version%20request%3A%20Extreme%20flood%20exposure%20and%20child%20nutrition%20in%20India"
+        }
+      ]
+    },
+    {
       title: "Gig work and general equilibrium effects in India's informal labour markets",
       kind: "Current project",
       year: 2026,
