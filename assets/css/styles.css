@@ -764,6 +764,13 @@ p {
   gap: 1.25rem;
 }
 
+.quote-panel--closing {
+  max-width: min(860px, 100%);
+  margin: 2.25rem auto 0;
+  text-align: center;
+  justify-items: center;
+}
+
 .quote-panel__block {
   margin: 0;
   display: grid;
@@ -793,6 +800,12 @@ p {
   font-size: 0.95rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.quote-panel--closing .panel-card__kicker,
+.quote-panel--closing .quote-panel__transliteration,
+.quote-panel--closing .quote-panel__attribution {
+  text-align: center;
 }
 
 .timeline-card__list,

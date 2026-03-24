@@ -25,6 +25,22 @@ const renderOrganization = (experienceItem) => {
   return `<a class="text-link" href="${experienceItem.organizationUrl}" target="_blank" rel="noreferrer">${experienceItem.organization}</a>`;
 };
 
+const renderQuotePanel = () => `
+  <article class="panel-card quote-panel quote-panel--closing">
+    <p class="panel-card__kicker">A line to keep in view</p>
+    <blockquote class="quote-panel__block">
+      <p class="quote-panel__lead">"${siteData.profile.quote.heisenberg}"</p>
+      <footer class="quote-panel__attribution">${siteData.profile.quote.heisenbergAttribution}</footer>
+    </blockquote>
+    <blockquote class="quote-panel__block quote-panel__block--iqbal">
+      <p class="quote-panel__original">${siteData.profile.quote.iqbalOriginal.replace(/\n/g, "<br>")}</p>
+      <p class="quote-panel__transliteration">${siteData.profile.quote.iqbalTransliteration.replace(/\n/g, "<br>")}</p>
+      <p class="quote-panel__translation">"${siteData.profile.quote.iqbalTranslation}"</p>
+      <footer class="quote-panel__attribution">${siteData.profile.quote.iqbalAttribution}</footer>
+    </blockquote>
+  </article>
+`;
+
 const renderResearchCard = (item) => `
   <article class="story-card">
     <p class="story-card__meta">${item.kind} &middot; ${item.year}</p>
@@ -158,19 +174,6 @@ focus.innerHTML = `
       </p>
     </article>
   </div>
-  <article class="panel-card quote-panel">
-    <p class="panel-card__kicker">A line to keep in view</p>
-    <blockquote class="quote-panel__block">
-      <p class="quote-panel__lead">"${siteData.profile.quote.heisenberg}"</p>
-      <footer class="quote-panel__attribution">${siteData.profile.quote.heisenbergAttribution}</footer>
-    </blockquote>
-    <blockquote class="quote-panel__block quote-panel__block--iqbal">
-      <p class="quote-panel__original">${siteData.profile.quote.iqbalOriginal.replace(/\n/g, "<br>")}</p>
-      <p class="quote-panel__transliteration">${siteData.profile.quote.iqbalTransliteration.replace(/\n/g, "<br>")}</p>
-      <p class="quote-panel__translation">"${siteData.profile.quote.iqbalTranslation}"</p>
-      <footer class="quote-panel__attribution">${siteData.profile.quote.iqbalAttribution}</footer>
-    </blockquote>
-  </article>
 `;
 
 work.innerHTML = `
@@ -311,6 +314,7 @@ contact.innerHTML = `
       <p class="contact-card__aside">${siteData.profile.aside}</p>
     </article>
   </div>
+  ${renderQuotePanel()}
 `;
 
 initGallery({
