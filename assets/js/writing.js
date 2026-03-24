@@ -10,10 +10,10 @@ hero.innerHTML = `
   <div class="shell compact-hero">
     <div>
       <p class="eyebrow">Writing</p>
-      <h1>Public scholarship and commentary.</h1>
+      <h1>Public scholarship with visual entry points.</h1>
       <p class="compact-hero__body">
-        I write beyond academic formats as well, especially when research questions touch public systems,
-        care work, inequality, and minority rights. These essays carry field experience into a broader audience.
+        Each article card now carries a thumbnail so the writing page feels less like a plain list and more
+        like a readable archive of public-facing work.
       </p>
     </div>
     <div class="compact-hero__meta">
@@ -31,12 +31,13 @@ hero.innerHTML = `
 
 const filters = [
   { key: "all", label: "All" },
-  { key: "health", label: "Health" },
   { key: "public-policy", label: "Public policy" },
-  { key: "gender", label: "Gender" },
+  { key: "health", label: "Health" },
   { key: "political-economy", label: "Political economy" },
-  { key: "education", label: "Education" },
-  { key: "inequality", label: "Inequality" }
+  { key: "urban-poverty", label: "Urban poverty" },
+  { key: "minorities", label: "Minorities" },
+  { key: "gender", label: "Gender" },
+  { key: "education", label: "Education" }
 ];
 
 page.innerHTML = `
@@ -53,14 +54,19 @@ page.innerHTML = `
     ${siteData.writing
       .map(
         (item) => `
-          <article class="story-card listing-card" data-filters="${item.filters.join(" ")}">
-            <p class="story-card__meta">${item.outlet} · ${item.year}</p>
-            <h2>${item.title}</h2>
-            <p class="listing-card__subhead">${item.collaborators}</p>
-            <p>${item.summary}</p>
-            ${renderTags(item.filters.map((filter) => filter.replace("-", " ")))}
-            <div class="card-links">
-              <a class="text-link" href="${item.url}" target="_blank" rel="noreferrer">Read article</a>
+          <article class="story-card listing-card article-card" data-filters="${item.filters.join(" ")}">
+            <a class="article-card__media" href="${item.url}" target="_blank" rel="noreferrer">
+              <img src="${item.thumbnail}" alt="${item.thumbnailAlt}">
+            </a>
+            <div class="article-card__body">
+              <p class="story-card__meta">${item.outlet} &middot; ${item.year}</p>
+              <h2>${item.title}</h2>
+              <p class="listing-card__subhead">${item.collaborators}</p>
+              <p>${item.summary}</p>
+              ${renderTags(item.filters.map((filter) => filter.replace("-", " ")))}
+              <div class="card-links">
+                <a class="text-link" href="${item.url}" target="_blank" rel="noreferrer">Read article</a>
+              </div>
             </div>
           </article>
         `

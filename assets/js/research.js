@@ -1,76 +1,84 @@
 import { siteData } from "./site-data.js";
-import { setupPage, renderTags, renderLinks, initRevealAnimations, initFilterButtons } from "./site-shell.js";
+import { setupPage, renderTags, renderLinks, initRevealAnimations } from "./site-shell.js";
 
 setupPage("research");
 
 const hero = document.querySelector("#page-hero");
 const page = document.querySelector("#listing-page");
+const totalResearchItems = siteData.papers.length + siteData.presentations.length;
 
 hero.innerHTML = `
   <div class="shell compact-hero">
     <div>
       <p class="eyebrow">Research</p>
-      <h1>Papers, working papers, and presentations.</h1>
+      <h1>Papers first, presentations folded into the same project where possible.</h1>
       <p class="compact-hero__body">
-        My research sits across health, development, survey methods, and the political economy of exclusion.
-        The archive below combines published work, current working papers, and presentations drawn from the CV.
+        The research page now avoids repeating the same project twice. If a paper also has a presentation,
+        those links stay together on one card instead of appearing as duplicate entries.
       </p>
     </div>
     <div class="compact-hero__meta">
       <div>
-        <strong>${siteData.research.length}</strong>
-        <span>entries</span>
+        <strong>${totalResearchItems}</strong>
+        <span>research entries</span>
       </div>
       <div>
-        <strong>2019 - 2024</strong>
-        <span>current span</span>
+        <strong>2022 - 2025</strong>
+        <span>current public span</span>
       </div>
     </div>
   </div>
 `;
 
-const filters = [
-  { key: "all", label: "All" },
-  { key: "publication", label: "Publication" },
-  { key: "working-paper", label: "Working papers" },
-  { key: "presentation", label: "Presentations" },
-  { key: "health", label: "Health" },
-  { key: "political-economy", label: "Political economy" },
-  { key: "survey-methods", label: "Survey methods" }
-];
-
 page.innerHTML = `
-  <div class="filter-bar" aria-label="Research filters">
-    ${filters
-      .map(
-        (filter) =>
-          `<button class="filter-button" type="button" data-filter="${filter.key}" aria-pressed="false">${filter.label}</button>`
-      )
-      .join("")}
-  </div>
-  <p class="listing-count" id="listing-count"></p>
-  <div class="listing-grid">
-    ${siteData.research
-      .map(
-        (item) => `
-          <article class="story-card listing-card" data-filters="${item.filters.join(" ")}">
-            <p class="story-card__meta">${item.kind} · ${item.year}</p>
-            <h2>${item.title}</h2>
-            <p class="listing-card__subhead">${item.collaborators}</p>
-            <p>${item.summary}</p>
-            ${item.note ? `<p class="listing-card__note">${item.note}</p>` : ""}
-            ${renderTags(item.filters.map((filter) => filter.replace("-", " ")))}
-            ${renderLinks(item.links)}
-          </article>
-        `
-      )
-      .join("")}
+  <div class="section-stack">
+    <section class="listing-section">
+      <div class="section-heading">
+        <p class="eyebrow">Paper</p>
+        <h2>Published and draft work with links kept on the same card.</h2>
+      </div>
+      <div class="listing-grid">
+        ${siteData.papers
+          .map(
+            (item) => `
+              <article class="story-card listing-card">
+                <p class="story-card__meta">${item.kind} &middot; ${item.year}</p>
+                <h2>${item.title}</h2>
+                <p class="listing-card__subhead">${item.collaborators}</p>
+                <p>${item.summary}</p>
+                ${item.note ? `<p class="listing-card__note">${item.note}</p>` : ""}
+                ${renderTags(item.filters.map((filter) => filter.replace("-", " ")))}
+                ${renderLinks(item.links)}
+              </article>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
+    <section class="listing-section">
+      <div class="section-heading">
+        <p class="eyebrow">Presentations</p>
+        <h2>Standalone conference presentations and ongoing project talks.</h2>
+      </div>
+      <div class="listing-grid">
+        ${siteData.presentations
+          .map(
+            (item) => `
+              <article class="story-card listing-card">
+                <p class="story-card__meta">${item.kind} &middot; ${item.year}</p>
+                <h2>${item.title}</h2>
+                <p class="listing-card__subhead">${item.collaborators}</p>
+                <p>${item.summary}</p>
+                ${item.note ? `<p class="listing-card__note">${item.note}</p>` : ""}
+                ${renderTags(item.filters.map((filter) => filter.replace("-", " ")))}
+                ${renderLinks(item.links)}
+              </article>
+            `
+          )
+          .join("")}
+      </div>
+    </section>
   </div>
 `;
 
-initFilterButtons({
-  filterSelector: ".filter-button",
-  itemSelector: ".listing-card",
-  countSelector: "#listing-count"
-});
 initRevealAnimations();
