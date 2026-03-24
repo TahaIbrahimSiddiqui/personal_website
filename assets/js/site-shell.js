@@ -1,11 +1,13 @@
 import { siteData } from "./site-data.js";
 
-const themeOptions = [
+const supportedThemes = [
   { value: "fieldwork", label: "Fieldwork", color: "#4e5a46" },
   { value: "river", label: "River", color: "#336b73" },
   { value: "brick", label: "Brick", color: "#8b4f3c" },
   { value: "night", label: "Night", color: "#0f1716" }
 ];
+
+const themeOptions = supportedThemes.filter((theme) => theme.value !== "night");
 
 const themeStorageKey = "tis-theme";
 const previousThemeStorageKey = "tis-theme-previous";
@@ -18,7 +20,7 @@ function linkAttributes(link) {
 function getSavedTheme() {
   try {
     const stored = window.localStorage.getItem(themeStorageKey);
-    if (themeOptions.some((theme) => theme.value === stored)) {
+    if (supportedThemes.some((theme) => theme.value === stored)) {
       return stored;
     }
   } catch (error) {
@@ -44,7 +46,7 @@ function getLastNonNightTheme() {
 function syncThemeControls(selectedTheme) {
   const select = document.querySelector("#theme-select");
   if (select) {
-    select.value = selectedTheme;
+    select.value = selectedTheme === "night" ? getLastNonNightTheme() : selectedTheme;
   }
 
   const toggle = document.querySelector("#night-toggle");
@@ -58,14 +60,14 @@ function syncThemeControls(selectedTheme) {
 }
 
 function setTheme(theme) {
-  const selectedTheme = themeOptions.some((option) => option.value === theme)
+  const selectedTheme = supportedThemes.some((option) => option.value === theme)
     ? theme
     : themeOptions[0].value;
 
   document.body.dataset.theme = selectedTheme;
 
   const themeMeta = document.querySelector('meta[name="theme-color"]');
-  const themeDefinition = themeOptions.find((option) => option.value === selectedTheme);
+  const themeDefinition = supportedThemes.find((option) => option.value === selectedTheme);
   if (themeMeta && themeDefinition) {
     themeMeta.setAttribute("content", themeDefinition.color);
   }
@@ -100,6 +102,7 @@ function renderHeader(pageKey) {
   }
 
   const activeTheme = document.body.dataset.theme || themeOptions[0].value;
+  const activeDropdownTheme = activeTheme === "night" ? getLastNonNightTheme() : activeTheme;
   const navLinks = [
     ...siteData.navigation,
     { label: "CV", href: siteData.cvPath, page: "cv", external: true }
@@ -127,7 +130,7 @@ function renderHeader(pageKey) {
               ${themeOptions
                 .map(
                   (theme) =>
-                    `<option value="${theme.value}"${theme.value === activeTheme ? " selected" : ""}>${theme.label}</option>`
+                    `<option value="${theme.value}"${theme.value === activeDropdownTheme ? " selected" : ""}>${theme.label}</option>`
                 )
                 .join("")}
             </select>
@@ -362,6 +365,7 @@ export function initGallery({
   prevSelector,
   nextSelector,
   dotSelector,
+  thumbSelector,
   statusSelector,
   lightboxItems,
   autoPlayMs = 7000
@@ -369,6 +373,7 @@ export function initGallery({
   const carousel = document.querySelector(carouselSelector);
   const slides = [...document.querySelectorAll(slideSelector)];
   const dots = [...document.querySelectorAll(dotSelector)];
+  const thumbs = thumbSelector ? [...document.querySelectorAll(thumbSelector)] : [];
   const prevButton = document.querySelector(prevSelector);
   const nextButton = document.querySelector(nextSelector);
   const statusNode = document.querySelector(statusSelector);
@@ -387,6 +392,12 @@ export function initGallery({
       const active = index === currentIndex;
       dot.classList.toggle("gallery-dot--active", active);
       dot.setAttribute("aria-pressed", String(active));
+    });
+
+    thumbs.forEach((thumb, index) => {
+      const active = index === currentIndex;
+      thumb.classList.toggle("gallery-thumb--active", active);
+      thumb.setAttribute("aria-pressed", String(active));
     });
 
     if (statusNode) {
@@ -430,6 +441,14 @@ export function initGallery({
 
     dots.forEach((dot, index) => {
       dot.addEventListener("click", () => {
+        currentIndex = index;
+        renderSlides();
+        startAutoPlay();
+      });
+    });
+
+    thumbs.forEach((thumb, index) => {
+      thumb.addEventListener("click", () => {
         currentIndex = index;
         renderSlides();
         startAutoPlay();

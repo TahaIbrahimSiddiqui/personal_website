@@ -14,6 +14,30 @@ const featuredResearch = [...siteData.papers, ...siteData.presentations]
   .filter((item) => item.featured)
   .slice(0, 2);
 const featuredWriting = siteData.writing.filter((item) => item.featured).slice(0, 2);
+const currentProjects = siteData.ongoingWork;
+
+const renderResearchCard = (item) => `
+  <article class="story-card">
+    <p class="story-card__meta">${item.kind} &middot; ${item.year}</p>
+    <h3>${item.title}</h3>
+    ${item.collaborators ? `<p class="listing-card__subhead">${item.collaborators}</p>` : ""}
+    <p>${item.summary}</p>
+    ${item.note ? `<p class="listing-card__note">${item.note}</p>` : ""}
+    ${renderTags(item.filters.map((filter) => filter.replace("-", " ")))}
+    ${renderLinks(item.links)}
+  </article>
+`;
+
+const renderCurrentProjectCard = (item) => `
+  <article class="story-card">
+    <p class="story-card__meta">${item.kind} &middot; ${item.year}</p>
+    <h3>${item.title}</h3>
+    ${item.status ? `<p class="listing-card__subhead">${item.status}</p>` : ""}
+    <p>${item.summary}</p>
+    ${renderTags(item.filters.map((filter) => filter.replace("-", " ")))}
+    ${renderLinks(item.links)}
+  </article>
+`;
 
 hero.innerHTML = `
   <div class="hero-background" data-hero-background>
@@ -57,7 +81,7 @@ hero.innerHTML = `
         </article>
         <article class="hero-stat">
           <span class="hero-stat__label">Research areas</span>
-          <strong>Public services, inequality, health, and the political economy of exclusion</strong>
+          <strong>Public services, labour, inequality, and the political economy of exclusion</strong>
         </article>
         <article class="hero-stat">
           <span class="hero-stat__label">Public writing</span>
@@ -107,23 +131,23 @@ if (heroVideoFrame && heroVideo) {
 focus.innerHTML = `
   <div class="section-heading">
     <p class="eyebrow">Research focus</p>
-    <h2>Questions about public systems, care, exclusion, and how institutions meet everyday life.</h2>
+    <h2>Questions about public systems, labour, care, and how institutions shape everyday life.</h2>
   </div>
   <div class="two-column-grid">
     <article class="panel-card">
       <p class="panel-card__kicker">What I work on</p>
       ${renderTags(siteData.profile.interests)}
       <p>
-        Much of my work asks how documentation, public systems, service delivery, and political exclusion
-        shape the lives of low-income households and minorities.
+        I keep returning to the places where paperwork, regulation, labour, and public services press
+        most directly on everyday life.
       </p>
     </article>
     <article class="panel-card">
       <p class="panel-card__kicker">How I work</p>
       ${renderTags(siteData.profile.methods)}
       <p>
-        I move between fieldwork, survey design, geospatial analysis, and public writing. I like research
-        that can speak across those worlds without losing the detail on the ground.
+        I move between fieldwork, survey design, geospatial analysis, and public writing. I want the work
+        to stay grounded without losing sight of the larger policy question.
       </p>
     </article>
   </div>
@@ -132,24 +156,10 @@ focus.innerHTML = `
 work.innerHTML = `
   <div class="section-heading">
     <p class="eyebrow">Selected work</p>
-    <h2>A few projects and essays.</h2>
+    <h2>Public-facing research and writing.</h2>
   </div>
   <div class="card-grid">
-    ${featuredResearch
-      .map(
-        (item) => `
-          <article class="story-card">
-            <p class="story-card__meta">${item.kind} &middot; ${item.year}</p>
-            <h3>${item.title}</h3>
-            <p class="listing-card__subhead">${item.collaborators}</p>
-            <p>${item.summary}</p>
-            ${item.note ? `<p class="listing-card__note">${item.note}</p>` : ""}
-            ${renderTags(item.filters.map((filter) => filter.replace("-", " ")))}
-            ${renderLinks(item.links)}
-          </article>
-        `
-      )
-      .join("")}
+    ${featuredResearch.map(renderResearchCard).join("")}
     ${featuredWriting
       .map(
         (item) => `
@@ -171,6 +181,13 @@ work.innerHTML = `
         `
       )
       .join("")}
+  </div>
+  <div class="section-heading section-heading--top-gap">
+    <p class="eyebrow">Working on now</p>
+    <h2>Projects currently on my desk.</h2>
+  </div>
+  <div class="card-grid">
+    ${currentProjects.map(renderCurrentProjectCard).join("")}
   </div>
 `;
 
@@ -201,10 +218,10 @@ experience.innerHTML = `
 gallery.innerHTML = `
   <div class="gallery-panel">
     <div class="section-heading section-heading--light">
-      <p class="eyebrow">Fieldwork</p>
+      <p class="eyebrow">Field notes</p>
       <h2>Glimpses from the field.</h2>
       <p class="section-heading__body">
-        A slideshow from field visits, survey work, public kitchens, hospitals, and flood-affected sites.
+        Photos from interviews, survey days, train crossings, flood visits, and the small scenes that tend to stay with you.
       </p>
     </div>
     <div class="gallery-carousel" id="gallery-carousel">
@@ -225,28 +242,28 @@ gallery.innerHTML = `
           .join("")}
       </div>
       <div class="gallery-carousel__footer">
-        <div class="gallery-carousel__meta">
-          <span class="gallery-carousel__status" id="gallery-status"></span>
-          <div class="gallery-dots" aria-label="Gallery slide selector">
-            ${siteData.gallery
-              .map(
-                (_, index) => `
-                  <button
-                    class="gallery-dot${index === 0 ? " gallery-dot--active" : ""}"
-                    type="button"
-                    data-gallery-dot="${index}"
-                    aria-label="Show image ${index + 1}"
-                    aria-pressed="${index === 0 ? "true" : "false"}"
-                  ></button>
-                `
-              )
-              .join("")}
-          </div>
-        </div>
+        <span class="gallery-carousel__status" id="gallery-status"></span>
         <div class="gallery-controls">
           <button class="button button--soft" id="gallery-prev" type="button">Previous</button>
           <button class="button button--soft" id="gallery-next" type="button">Next</button>
         </div>
+      </div>
+      <div class="gallery-thumbs" aria-label="Photo carousel thumbnails">
+        ${siteData.gallery
+          .map(
+            (item, index) => `
+              <button
+                class="gallery-thumb${index === 0 ? " gallery-thumb--active" : ""}"
+                type="button"
+                data-gallery-thumb="${index}"
+                aria-label="Show photo ${index + 1}: ${item.caption}"
+                aria-pressed="${index === 0 ? "true" : "false"}"
+              >
+                <img src="${item.src}" alt="" aria-hidden="true">
+              </button>
+            `
+          )
+          .join("")}
       </div>
     </div>
   </div>
@@ -282,6 +299,7 @@ initGallery({
   prevSelector: "#gallery-prev",
   nextSelector: "#gallery-next",
   dotSelector: "[data-gallery-dot]",
+  thumbSelector: "[data-gallery-thumb]",
   statusSelector: "#gallery-status",
   lightboxItems: siteData.gallery,
   autoPlayMs: 5000

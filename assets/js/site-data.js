@@ -19,7 +19,7 @@ export const siteData = {
   pageIntro: {
     research: {
       title: "Research",
-      body: "Papers, presentations, and ongoing work on public services, exclusion, health, and development in India."
+      body: "Papers, presentations, and current projects on public services, labour, exclusion, health, and development in India."
     },
     writing: {
       title: "Writing",
@@ -154,6 +154,25 @@ export const siteData = {
       ],
       featured: true,
       note: "Won the best paper award at the 17th South Asian Economics Students' Meet."
+    },
+    {
+      title:
+        "Multilateral peacebuilding in practice: Addressing farmer-herder disputes along the border of Sierra Leone and Guinea",
+      kind: "Working paper",
+      year: 2026,
+      collaborators:
+        "With Shwetangi Sahu, Devika Lakhote, Fiona Kastel, Lame Ungwang, Sara Ansari, and Theodora Benesch",
+      summary:
+        "Examines how multilateral peacebuilding works in practice along the Sierra Leone-Guinea border, with a focus on farmer-herder disputes and the institutions built to settle them.",
+      filters: ["paper", "political-economy", "public-policy"],
+      links: [
+        {
+          label: "Mail for latest version",
+          url: "mailto:Taha.i.siddiq@gmail.com?subject=Latest%20version%20request%3A%20Multilateral%20peacebuilding%20in%20practice"
+        }
+      ],
+      featured: false,
+      note: "R&R at Journal of Development Effectiveness."
     }
   ],
   presentations: [
@@ -165,9 +184,14 @@ export const siteData = {
       summary:
         "Studies whether local discretionary spending under the Model Village Scheme reflects religious bias in India.",
       filters: ["presentation", "political-economy", "minorities"],
-      links: [],
+      links: [
+        {
+          label: "Mail for latest version",
+          url: "mailto:Taha.i.siddiq@gmail.com?subject=Latest%20version%20request%3A%20Identity%20and%20Discretionary%20Spending"
+        }
+      ],
       featured: true,
-      note: "Public slides are not posted yet."
+      note: ""
     },
     {
       title:
@@ -178,9 +202,46 @@ export const siteData = {
       summary:
         "Looks at how ambient temperature and measured body temperature move together for neonates in a public hospital in Uttar Pradesh.",
       filters: ["presentation", "health", "survey-methods"],
-      links: [],
+      links: [
+        {
+          label: "Mail for latest version",
+          url: "mailto:Taha.i.siddiq@gmail.com?subject=Latest%20version%20request%3A%20Ambient%20Temperature%20and%20Measured%20Body%20Temperature%20Among%20Neonates"
+        }
+      ],
       featured: true,
-      note: "Public slides are not posted yet."
+      note: ""
+    }
+  ],
+  ongoingWork: [
+    {
+      title: "Regulatory policy, leather markets, and downstream human well-being",
+      kind: "Current project",
+      year: 2026,
+      status: "In progress",
+      summary:
+        "A project on how regulation reshapes leather markets, who bears those costs, and what that means for work, household security, and daily well-being.",
+      filters: ["ongoing", "political-economy", "labour"],
+      links: [
+        {
+          label: "Mail for latest version",
+          url: "mailto:Taha.i.siddiq@gmail.com?subject=Latest%20version%20request%3A%20Regulatory%20policy%20and%20leather%20markets"
+        }
+      ]
+    },
+    {
+      title: "Gig work and general equilibrium effects in India's informal labour markets",
+      kind: "Current project",
+      year: 2026,
+      status: "In progress",
+      summary:
+        "Looks at what gig work changes in local labour markets, especially for workers moving in and out of informal jobs and low-wage service work.",
+      filters: ["ongoing", "labour", "urban-poverty"],
+      links: [
+        {
+          label: "Mail for latest version",
+          url: "mailto:Taha.i.siddiq@gmail.com?subject=Latest%20version%20request%3A%20Gig%20work%20and%20informal%20labour%20markets%20in%20India"
+        }
+      ]
     }
   ],
   writing: [
@@ -320,34 +381,49 @@ export const siteData = {
   ],
   gallery: [
     {
-      src: "assets/images/fieldwork-01.jpg",
-      alt: "Women preparing food at a community kitchen during a field visit.",
-      caption: "Community kitchen fieldwork in Rajasthan."
+      src: "assets/images/field-carousel/field-01.jpg",
+      alt: "A fieldworker speaking with women in a narrow residential lane.",
+      caption: "A survey conversation in a narrow lane."
     },
     {
-      src: "assets/images/fieldwork-04.jpg",
-      alt: "A narrow lane with people standing at a doorway during field visits.",
-      caption: "Doorstep conversations during on-site research."
+      src: "assets/images/field-carousel/field-02.jpg",
+      alt: "Blue-painted homes and a dog in a settlement visited during fieldwork.",
+      caption: "Housing conditions around a field site."
     },
     {
-      src: "assets/images/fieldwork-05.jpg",
-      alt: "A street scene with a scooter and pedestrians during travel between sites.",
-      caption: "Travel between research sites."
+      src: "assets/images/field-carousel/field-03.jpg",
+      alt: "A railway crossing with cyclists, scooters, and pedestrians waiting to pass.",
+      caption: "Waiting at a railway crossing between visits."
     },
     {
-      src: "assets/images/fieldwork-06.jpg",
-      alt: "People standing in flood water during a field visit.",
-      caption: "A flood-affected location visited during fieldwork."
+      src: "assets/images/field-carousel/field-04.jpg",
+      alt: "A woman cooking outdoors near a temporary shelter during a field visit.",
+      caption: "An outdoor kitchen at a field site."
     },
     {
-      src: "assets/images/fieldwork-07.jpg",
-      alt: "A blue-painted wall and lane with a goat near a research site.",
-      caption: "Built environments around field sites matter too."
+      src: "assets/images/field-carousel/field-05.jpg",
+      alt: "A family standing in flood water outside their home.",
+      caption: "Speaking with a family in a flood-affected settlement."
     },
     {
-      src: "assets/images/fieldwork-08.jpg",
-      alt: "An adult carrying a baby during newborn-health fieldwork.",
-      caption: "Everyday caregiving contexts at the center of health research."
+      src: "assets/images/field-carousel/field-06.jpg",
+      alt: "A man holding a baby outside a home during a field visit.",
+      caption: "Caregiving and health research often begin at the doorstep."
+    },
+    {
+      src: "assets/images/field-carousel/field-07.jpg",
+      alt: "A street food stall sign photographed during fieldwork.",
+      caption: "Street food, signage, and the details that stay with you."
+    },
+    {
+      src: "assets/images/field-carousel/field-08.jpg",
+      alt: "Researchers speaking with children and residents outside a brick home.",
+      caption: "Household survey work with children and caregivers."
+    },
+    {
+      src: "assets/images/field-carousel/field-09.jpg",
+      alt: "A child holding schoolbooks in a doorway during a household visit.",
+      caption: "A child showing schoolbooks during a household visit."
     }
   ],
   pageMeta: {
@@ -359,7 +435,7 @@ export const siteData = {
     research: {
       title: "Research | Taha Ibrahim Siddiqui",
       description:
-        "Research papers and conference presentations by Taha Ibrahim Siddiqui."
+        "Research papers, presentations, and current projects by Taha Ibrahim Siddiqui."
     },
     writing: {
       title: "Writing | Taha Ibrahim Siddiqui",
