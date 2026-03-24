@@ -3,7 +3,8 @@ import { siteData } from "./site-data.js";
 const themeOptions = [
   { value: "fieldwork", label: "Fieldwork", color: "#4e5a46" },
   { value: "river", label: "River", color: "#336b73" },
-  { value: "brick", label: "Brick", color: "#8b4f3c" }
+  { value: "brick", label: "Brick", color: "#8b4f3c" },
+  { value: "night", label: "Night", color: "#0f1716" }
 ];
 
 const themeStorageKey = "tis-theme";
@@ -185,14 +186,27 @@ function bindThemeSelector() {
   });
 }
 
-export function renderTags(tags = []) {
+export function renderTags(tags = [], options = {}) {
+  const { interactive = false, dataAttribute = "data-chip-filter" } = options;
   if (!tags.length) {
     return "";
   }
 
+  const normalizedTags = tags.map((tag) =>
+    typeof tag === "string"
+      ? { label: tag, value: tag }
+      : { label: tag.label, value: tag.value ?? tag.label }
+  );
+
   return `
     <ul class="chips" aria-label="Tags">
-      ${tags.map((tag) => `<li class="chip">${tag}</li>`).join("")}
+      ${normalizedTags
+        .map((tag) =>
+          interactive
+            ? `<li><button class="chip chip--button" type="button" ${dataAttribute}="${tag.value}">${tag.label}</button></li>`
+            : `<li class="chip">${tag.label}</li>`
+        )
+        .join("")}
     </ul>
   `;
 }
@@ -236,12 +250,13 @@ export function initRevealAnimations() {
   revealNodes.forEach((node) => observer.observe(node));
 }
 
-export function initFilterButtons({ filterSelector, itemSelector, countSelector }) {
+export function initFilterButtons({ filterSelector, itemSelector, countSelector, chipSelector = "[data-chip-filter]" }) {
   const buttons = [...document.querySelectorAll(filterSelector)];
   const items = [...document.querySelectorAll(itemSelector)];
+  const chips = [...document.querySelectorAll(chipSelector)];
   const countNode = document.querySelector(countSelector);
 
-  if (!buttons.length || !items.length) {
+  if ((!buttons.length && !chips.length) || !items.length) {
     return;
   }
 
@@ -269,6 +284,10 @@ export function initFilterButtons({ filterSelector, itemSelector, countSelector 
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => applyFilter(button.dataset.filter));
+  });
+
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => applyFilter(chip.dataset.chipFilter));
   });
 
   applyFilter("all");

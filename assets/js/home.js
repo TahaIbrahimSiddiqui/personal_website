@@ -16,6 +16,22 @@ const featuredResearch = [...siteData.papers, ...siteData.presentations]
 const featuredWriting = siteData.writing.filter((item) => item.featured).slice(0, 2);
 
 hero.innerHTML = `
+  <div class="hero-background" data-hero-background>
+    <video
+      class="hero-background__video"
+      data-hero-video
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="${siteData.heroVideo.poster}"
+      aria-hidden="true"
+    >
+      <source src="${siteData.heroVideo.src}" type="video/webm">
+    </video>
+    <img class="hero-background__poster" src="${siteData.heroVideo.poster}" alt="" aria-hidden="true">
+    <div class="hero-background__veil"></div>
+  </div>
   <div class="shell hero-grid">
     <div class="hero-copy">
       <p class="eyebrow">Empirical social scientist</p>
@@ -31,23 +47,8 @@ hero.innerHTML = `
       </div>
     </div>
     <div class="hero-media">
-      <figure class="hero-video-card">
-        <div class="hero-video-frame" data-hero-video-frame>
-          <video
-            class="hero-video"
-            data-hero-video
-            muted
-            loop
-            playsinline
-            preload="metadata"
-            poster="${siteData.heroVideo.poster}"
-            aria-label="${siteData.heroVideo.alt}"
-          >
-            <source src="${siteData.heroVideo.src}" type="video/webm">
-          </video>
-          <img class="hero-video__poster" src="${siteData.heroVideo.poster}" alt="${siteData.heroVideo.alt}">
-        </div>
-        <figcaption class="hero-media__caption">${siteData.heroVideo.caption}</figcaption>
+      <figure class="portrait-card portrait-card--hero">
+        <img src="${siteData.profile.heroImage}" alt="${siteData.profile.portraitAlt}">
       </figure>
       <div class="hero-stats">
         <article class="hero-stat">
@@ -67,7 +68,7 @@ hero.innerHTML = `
   </div>
 `;
 
-const heroVideoFrame = hero.querySelector("[data-hero-video-frame]");
+const heroVideoFrame = hero.querySelector("[data-hero-background]");
 const heroVideo = hero.querySelector("[data-hero-video]");
 
 if (heroVideoFrame && heroVideo) {
@@ -75,7 +76,7 @@ if (heroVideoFrame && heroVideo) {
 
   const syncHeroVideo = () => {
     const reduceMotion = motionMedia.matches;
-    heroVideoFrame.classList.toggle("hero-video-frame--static", reduceMotion);
+    heroVideoFrame.classList.toggle("hero-background--static", reduceMotion);
 
     if (reduceMotion) {
       heroVideo.pause();
@@ -87,10 +88,10 @@ if (heroVideoFrame && heroVideo) {
     heroVideo
       .play()
       .then(() => {
-        heroVideoFrame.classList.remove("hero-video-frame--static");
+        heroVideoFrame.classList.remove("hero-background--static");
       })
       .catch(() => {
-        heroVideoFrame.classList.add("hero-video-frame--static");
+        heroVideoFrame.classList.add("hero-background--static");
       });
   };
 

@@ -38,6 +38,7 @@ const filters = [
   { key: "urban-poverty", label: "Urban poverty" },
   { key: "minorities", label: "Minorities" },
   { key: "gender", label: "Gender" },
+  { key: "inequality", label: "Inequality" },
   { key: "education", label: "Education" }
 ];
 
@@ -64,7 +65,13 @@ page.innerHTML = `
               <h2>${item.title}</h2>
               <p class="listing-card__subhead">${item.collaborators}</p>
               <p>${item.summary}</p>
-              ${renderTags(item.filters.map((filter) => filter.replace("-", " ")))}
+              ${renderTags(
+                item.filters.map((filter) => ({
+                  value: filter,
+                  label: filter.replace("-", " ")
+                })),
+                { interactive: true }
+              )}
               <div class="card-links">
                 <a class="text-link" href="${item.url}" target="_blank" rel="noreferrer">Read article</a>
               </div>
