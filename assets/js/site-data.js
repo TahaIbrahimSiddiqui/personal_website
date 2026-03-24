@@ -7,8 +7,7 @@ export const siteData = {
   heroVideo: {
     src: "assets/media/india-street-hero.webm",
     poster: "assets/images/datasets/delhi-street.jpg",
-    alt: "Street traffic and everyday movement in Mumbai.",
-    caption: "A street scene in Mumbai."
+    alt: "Street traffic and everyday movement in Mumbai."
   },
   navigation: [
     { label: "Home", href: "index.html", page: "home" },

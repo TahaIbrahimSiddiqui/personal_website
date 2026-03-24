@@ -1,4 +1,4 @@
-import { siteData } from "./site-data.js?v=20260325f";
+import { siteData } from "./site-data.js?v=20260325h";
 
 const supportedThemes = [
   { value: "fieldwork", label: "Fieldwork", color: "#4e5a46" },

@@ -1,5 +1,5 @@
-import { siteData } from "./site-data.js?v=20260325g";
-import { setupPage, initRevealAnimations } from "./site-shell.js?v=20260325f";
+import { siteData } from "./site-data.js?v=20260325h";
+import { setupPage, initRevealAnimations } from "./site-shell.js?v=20260325h";
 
 setupPage("resources");
 
