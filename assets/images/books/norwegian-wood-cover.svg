@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">Norwegian Wood cover</title>
+  <desc id="desc">A red cover with the author name Murakami, a white circle with black abstract lines, and the title Norwegian Wood.</desc>
+  <rect width="800" height="1200" fill="#c91c2f"/>
+  <text x="400" y="175" fill="#f6f0e6" font-family="Arial, Helvetica, sans-serif" font-size="110" letter-spacing="10" text-anchor="middle">MURAKAMI</text>
+  <circle cx="400" cy="610" r="255" fill="#f6f0e6"/>
+  <path d="M185 760 L185 470 L215 455 L215 740 Z" fill="#0f1117"/>
+  <path d="M245 742 L245 420 L278 408 L278 720 Z" fill="#0f1117"/>
+  <path d="M325 720 L325 392 L362 384 L362 700 Z" fill="#0f1117"/>
+  <path d="M430 700 L430 380 L470 382 L470 688 Z" fill="#0f1117"/>
+  <path d="M545 708 L545 390 L586 402 L586 720 Z" fill="#0f1117"/>
+  <path d="M645 738 L645 432 L680 450 L680 760 Z" fill="#0f1117"/>
+  <path d="M90 720 L360 648 L360 682 L104 750 Z" fill="#0f1117"/>
+  <path d="M88 658 L360 590 L360 622 L96 690 Z" fill="#0f1117"/>
+  <path d="M95 600 L360 535 L360 566 L104 630 Z" fill="#0f1117"/>
+  <path d="M290 640 L640 570 L640 602 L300 670 Z" fill="#0f1117"/>
+  <path d="M320 582 L640 520 L640 550 L330 612 Z" fill="#0f1117"/>
+  <text x="400" y="1050" fill="#f6f0e6" font-family="Arial, Helvetica, sans-serif" font-size="66" letter-spacing="6" text-anchor="middle">NORWEGIAN</text>
+  <text x="400" y="1128" fill="#f6f0e6" font-family="Arial, Helvetica, sans-serif" font-size="66" letter-spacing="6" text-anchor="middle">WOOD</text>
+  <text x="748" y="1095" fill="#0f1117" font-family="Arial, Helvetica, sans-serif" font-size="38" letter-spacing="4" transform="rotate(90 748 1095)">VINTAGE</text>
+</svg>

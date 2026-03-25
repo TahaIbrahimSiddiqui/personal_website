@@ -1,5 +1,5 @@
-import { siteData } from "./site-data.js?v=20260325h";
-import { setupPage, initRevealAnimations } from "./site-shell.js?v=20260325h";
+import { siteData } from "./site-data.js?v=20260325i";
+import { setupPage, initRevealAnimations } from "./site-shell.js?v=20260325i";
 
 setupPage("resources");
 
@@ -25,7 +25,7 @@ const renderResourceCard = (item, ctaLabel) => {
       <div class="resource-card__body">
         <p class="resource-card__meta">${item.type} &middot; ${item.access}</p>
         <h2>${item.title}</h2>
-        <p>${item.note}</p>
+        ${item.note ? `<p>${item.note}</p>` : ""}
       </div>
       <span class="button button--soft resource-card__button">${ctaLabel}</span>
     </a>

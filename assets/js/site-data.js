@@ -13,6 +13,7 @@ export const siteData = {
     { label: "Home", href: "index.html", page: "home" },
     { label: "Research", href: "research.html", page: "research" },
     { label: "Writing", href: "writing.html", page: "writing" },
+    { label: "Reading", href: "reading.html", page: "reading" },
     { label: "Resources", href: "resources.html", page: "resources" }
   ],
   pageIntro: {
@@ -23,6 +24,10 @@ export const siteData = {
     writing: {
       title: "Writing",
       body: "Essays, commentary, and public-facing work on policy, care, inequality, and representation."
+    },
+    reading: {
+      title: "Reading",
+      body: "Books I keep returning to, and the thoughts they leave behind."
     },
     resources: {
       title: "Data and documents",
@@ -349,6 +354,21 @@ export const siteData = {
       thumbnailAlt: "Article thumbnail about internet expenses and schooling."
     }
   ],
+  readingBook: {
+    title: "Norwegian Wood",
+    author: "Haruki Murakami",
+    cover: "assets/images/books/norwegian-wood-cover.svg",
+    coverAlt: "Red book cover for Norwegian Wood by Haruki Murakami.",
+    intro: "This is something I read during the COVID lockdown.",
+    reflections: [
+      "If you want to read about someone meandering through life, rather than a sharply drawn protagonist driving everything forward, this book is for you.",
+      "Murakami writes beautifully. The imagery stays with you, and at times it feels as if you are walking through the novel alongside the character.",
+      "It is a coming-of-age novel and also not one. Most coming-of-age stories lean on the ecstasy of youth, young love, and mistakes. This one also makes room for quieter fears: walking down a winding road and wondering whether you will make something of your life, whether the dream you carry will ever arrive.",
+      "I have probably said enough. You may feel, now and then, that the story is not going anywhere. That is the point."
+    ],
+    favoritePassage:
+      "No truth can cure the sorrow we feel from losing a loved one. No truth, no sincerity, no strength, no kindness can cure that sorrow. All we can do is see it through to the end and learn something from it, but what we learn will be no help in facing the next sorrow that comes to us without warning."
+  },
   datasets: [
     {
       title: "Bihar Flood Inundation Panel Dataset (1998-2021)",
@@ -386,7 +406,7 @@ export const siteData = {
       title: "Current Work CV",
       type: "PDF",
       access: "Local copy",
-      note: "Work-focused CV linked throughout the site.",
+      note: "",
       url: "assets/files/taha-resume-work.pdf"
     },
     {
@@ -465,6 +485,10 @@ export const siteData = {
     writing: {
       title: "Writing | Taha Ibrahim Siddiqui",
       description: "Public scholarship and commentary by Taha Ibrahim Siddiqui."
+    },
+    reading: {
+      title: "Reading | Taha Ibrahim Siddiqui",
+      description: "Reading notes and favorite books by Taha Ibrahim Siddiqui."
     },
     resources: {
       title: "Resources | Taha Ibrahim Siddiqui",
