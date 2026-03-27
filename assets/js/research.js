@@ -1,5 +1,5 @@
-import { siteData } from "./site-data.js?v=20260327a";
-import { setupPage, renderTags, renderLinks, initRevealAnimations } from "./site-shell.js?v=20260327a";
+import { siteData } from "./site-data.js?v=20260327b";
+import { setupPage, renderTags, renderLinks, initRevealAnimations } from "./site-shell.js?v=20260327b";
 
 setupPage("research");
 

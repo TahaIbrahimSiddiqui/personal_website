@@ -386,6 +386,21 @@ export const siteData = {
       ],
       favoritePassage:
         "Men have been found to resist the most powerful monarchs and to refuse to bow down before them, but few indeed have been found to resist the crowd, to stand up alone before misguided masses, to face their implacable frenzy without weapons and with folded arms, to dare a no when a yes is demanded. Such a man was Zola!"
+    },
+    {
+      title: "Utopia for Realists",
+      author: "Rutger Bregman",
+      cover: "assets/images/books/utopia-for-realists-cover.svg",
+      coverAlt: "Pale blue book cover for Utopia for Realists by Rutger Bregman.",
+      intro:
+        "As the title suggests, this is a collection of ideas that usually get treated as fringe, but are really arguments for making society more humane.",
+      reflections: [
+        "Universal Basic Income, open borders, a 15-hour work week. The book is basically a catalogue of ideas that sound impossible until someone sits down and asks why we are so sure they are impossible.",
+        "We are living through hard times. For the first time since the Industrial Revolution, mortality for the poorest in the developed world, especially in America, has moved in the wrong direction. Add the specter of AI replacing large parts of white-collar work, and it is hard not to feel that we are living in a period of real flux.",
+        "That is also what makes the book worth reading now. Moments like this force us to ask what we mean by work, what kind of society we want, and whether the present order deserves to be treated as common sense.",
+        "Bregman makes a very compelling case for each of these ideas. Still, I finished the book wanting more evidence on whether they actually work in practice and what the externalities might be. Even so, I kept coming back to Oscar Wilde's line that progress is the realisation of Utopias."
+      ],
+      favoritePassage: "Progress is the realisation of Utopias."
     }
   ],
   datasets: [
