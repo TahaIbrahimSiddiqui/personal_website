@@ -354,21 +354,40 @@ export const siteData = {
       thumbnailAlt: "Article thumbnail about internet expenses and schooling."
     }
   ],
-  readingBook: {
-    title: "Norwegian Wood",
-    author: "Haruki Murakami",
-    cover: "assets/images/books/norwegian-wood-cover.svg",
-    coverAlt: "Red book cover for Norwegian Wood by Haruki Murakami.",
-    intro: "This is something I read during the COVID lockdown.",
-    reflections: [
-      "If you want to read about someone meandering through life, rather than a sharply drawn protagonist driving everything forward, this book is for you.",
-      "Murakami writes beautifully. The imagery stays with you, and at times it feels as if you are walking through the novel alongside the character.",
-      "It is a coming-of-age novel and also not one. Most coming-of-age stories lean on the ecstasy of youth, young love, and mistakes. This one also makes room for quieter fears: walking down a winding road and wondering whether you will make something of your life, whether the dream you carry will ever arrive.",
-      "I have probably said enough. You may feel, now and then, that the story is not going anywhere. That is the point."
-    ],
-    favoritePassage:
-      "No truth can cure the sorrow we feel from losing a loved one. No truth, no sincerity, no strength, no kindness can cure that sorrow. All we can do is see it through to the end and learn something from it, but what we learn will be no help in facing the next sorrow that comes to us without warning."
-  },
+  readingBooks: [
+    {
+      title: "Norwegian Wood",
+      author: "Haruki Murakami",
+      cover: "assets/images/books/norwegian-wood-cover.svg",
+      coverAlt: "Red book cover for Norwegian Wood by Haruki Murakami.",
+      intro: "This is something I read during the COVID lockdown.",
+      reflections: [
+        "If you want to read about someone meandering through life, rather than a sharply drawn protagonist driving everything forward, this book is for you.",
+        "Murakami writes beautifully. The imagery stays with you, and at times it feels as if you are walking through the novel alongside the character.",
+        "It is a coming-of-age novel and also not one. Most coming-of-age stories lean on the ecstasy of youth, young love, and mistakes. This one also makes room for quieter fears: walking down a winding road and wondering whether you will make something of your life, whether the dream you carry will ever arrive.",
+        "I have probably said enough. You may feel, now and then, that the story is not going anywhere. That is the point."
+      ],
+      favoritePassage:
+        "No truth can cure the sorrow we feel from losing a loved one. No truth, no sincerity, no strength, no kindness can cure that sorrow. All we can do is see it through to the end and learn something from it, but what we learn will be no help in facing the next sorrow that comes to us without warning."
+    },
+    {
+      title: "The Origins of Totalitarianism",
+      author: "Hannah Arendt",
+      cover: "assets/images/books/origins-of-totalitarianism-cover.svg",
+      coverAlt: "Red and white book cover for The Origins of Totalitarianism by Hannah Arendt.",
+      intro:
+        "To be honest, I had to go back to my notes before writing this, because what I remembered most was just how excruciatingly dense the book is. It took me seven attempts to finish.",
+      reflections: [
+        "I still think this book needs a companion, or maybe a public version written for ordinary readers, because it is hard to enter without some grounding in political theory.",
+        "There are also layers of history in it that many readers from the Global South may not immediately have at hand. I had to go away and read the Dreyfus Affair properly before that chapter really opened up for me.",
+        "Even then, it is one of those books that leaves an imprint on the mind. A lot of discussion around totalitarianism and authoritarianism today gets reduced to institutional decay or the centralisation of power. Arendt is more unsettling than that. She shows how the ground is prepared much earlier, long before we can clearly see the monster.",
+        "What stayed with me most is her argument that totalitarianism feeds on loneliness and isolation. That feels painfully current. One answer, I think, lies in public spaces of discussion, even something as ordinary as a chai tapri where people can gather and talk. When we are left alone, helplessness grows. When we come together as a collective, hope returns.",
+        "The French Revolution is a useful reminder. It did not begin only when people marched on the Bastille. Before that there were salons, social gatherings often hosted by elite women, where ideas were tested, sharpened, and made politically alive."
+      ],
+      favoritePassage:
+        "Men have been found to resist the most powerful monarchs and to refuse to bow down before them, but few indeed have been found to resist the crowd, to stand up alone before misguided masses, to face their implacable frenzy without weapons and with folded arms, to dare a no when a yes is demanded. Such a man was Zola!"
+    }
+  ],
   datasets: [
     {
       title: "Bihar Flood Inundation Panel Dataset (1998-2021)",

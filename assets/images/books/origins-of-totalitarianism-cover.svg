@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" role="img" aria-labelledby="title desc">
+  <title id="title">The Origins of Totalitarianism cover</title>
+  <desc id="desc">A red cover with a white starburst shape, black triangular accents, and the title The Origins of Totalitarianism by Hannah Arendt.</desc>
+  <rect width="800" height="1200" fill="#e4402f"/>
+  <polygon points="400,120 560,440 740,430 605,590 740,770 560,760 400,1080 240,760 60,770 195,590 60,430 240,440" fill="#f6f0e6"/>
+  <polygon points="195,210 315,435 268,435 150,255" fill="#101217"/>
+  <polygon points="605,210 650,255 532,435 485,435" fill="#101217"/>
+  <polygon points="250,950 368,735 322,735 205,915" fill="#101217"/>
+  <polygon points="550,950 595,915 478,735 432,735" fill="#101217"/>
+  <polygon points="240,440 330,590 284,590 198,445" fill="#101217"/>
+  <polygon points="560,440 602,445 516,590 470,590" fill="#101217"/>
+  <text x="400" y="505" fill="#17191f" font-family="Georgia, 'Times New Roman', serif" font-size="34" letter-spacing="2.2" text-anchor="middle">THE ORIGINS OF</text>
+  <text x="400" y="565" fill="#17191f" font-family="Georgia, 'Times New Roman', serif" font-size="52" text-anchor="middle">TOTALITARIANISM</text>
+  <text x="400" y="665" fill="#17191f" font-family="Georgia, 'Times New Roman', serif" font-size="40" letter-spacing="1.5" text-anchor="middle">HANNAH ARENDT</text>
+</svg>

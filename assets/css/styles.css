@@ -1049,6 +1049,18 @@ p {
   align-items: start;
 }
 
+.reading-entry {
+  align-items: start;
+}
+
+.reading-entry:nth-child(even) .reading-cover-panel {
+  order: 2;
+}
+
+.reading-entry:nth-child(even) .reading-panel {
+  order: 1;
+}
+
 .reading-cover-panel {
   place-items: center;
   background: var(--surface-soft);

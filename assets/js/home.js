@@ -1,5 +1,5 @@
-import { siteData } from "./site-data.js?v=20260325i";
-import { setupPage, renderTags, renderLinks, initRevealAnimations, initGallery } from "./site-shell.js?v=20260325i";
+import { siteData } from "./site-data.js?v=20260327a";
+import { setupPage, renderTags, renderLinks, initRevealAnimations, initGallery } from "./site-shell.js?v=20260327a";
 
 setupPage("home");
 
