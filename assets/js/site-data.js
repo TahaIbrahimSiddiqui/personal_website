@@ -401,6 +401,21 @@ export const siteData = {
         "Bregman makes a very compelling case for each of these ideas. Still, I finished the book wanting more evidence on whether they actually work in practice and what the externalities might be. Even so, I kept coming back to Oscar Wilde's line that progress is the realisation of Utopias."
       ],
       favoritePassage: "Progress is the realisation of Utopias."
+    },
+    {
+      title: "A Thousand Splendid Suns",
+      author: "Khaled Hosseini",
+      cover: "assets/images/books/a-thousand-splendid-suns-cover.jpg",
+      coverAlt: "Book cover for A Thousand Splendid Suns by Khaled Hosseini.",
+      intro:
+        "This book brings back an old question for me: can you admire a novel and still distrust its politics? My answer is yes.",
+      reflections: [
+        "I feel that way about Rudyard Kipling's Kim. It is one of the most vivid books on India I have read, but it is also written from the eye of a colonial officer who believed natives needed to be civilised by empire. A Thousand Splendid Suns creates a similar tension for me.",
+        "Hosseini gives you a striking sense of Afghanistan: the streets of Kabul, the mountain villages, the emotional weather of the people moving through the book. It is beautifully written and very immersive. You do feel the protagonists' pain as the story unfolds.",
+        "At the same time, the novel often sees Afghanistan from a foreign eye. Too much is arranged in black and white, with very little room for contradiction or grey. That is where its politics begin to trouble me. It falls into the trap Edward Said would have recognised as Orientalism, where Afghan women seem to wait for an outside saviour to rescue them from the hands of the mullah.",
+        "I would still recommend the novel, but I would also say: read it with a pinch of salt when it comes to its politics."
+      ],
+      favoritePassage: "Behind every trial and sorrow that He makes us shoulder, God has a reason."
     }
   ],
   datasets: [
