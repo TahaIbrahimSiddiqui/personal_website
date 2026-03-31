@@ -97,7 +97,7 @@ export const siteData = {
       ]
     },
     {
-      period: "Oct 2025 - Present",
+      period: "Oct 2025 - Jan 2026",
       role: "Academic Research Mentor",
       organization: "Department of Computer Science, Ashoka University (part-time)",
       summary:
@@ -423,7 +423,7 @@ export const siteData = {
       cover: "assets/images/books/late-victorian-holocausts-cover.jpg",
       coverAlt: "Book cover for Late Victorian Holocausts by Mike Davis.",
       intro:
-        "Let me start with the question that kept coming back while I was reading this book: in the nineteenth century, why did the colonised world, from South America to Africa to Indo-China, witness famines on a scale that had been largely unheard of for centuries before? Was it really a coincidence that people in the Mekong Delta were dying of hunger while Vidarbha was seeing similar death at the same time?",
+        "Let me pose a question to you: in the nineteenth century, why did the colonised world, from South America to Africa to Indo-China, witness famines on a scale that had been largely unheard of for centuries before? Was it really a coincidence that people in the Mekong Delta were dying of hunger while Vidarbha was seeing similar death at the same time?",
       reflections: [
         "This book is Davis's investigation into that question from several angles. One of the most compelling ideas in it is that colonial administrations were saturated with utilitarian ideology. In that view, it made perfect sense for cultivators to grow cash crops like cotton or indigo on their extra land rather than hold grain reserves.",
         "The problem, of course, is what happens when subsistence fails. In earlier times, grain stored by peasants or by feudal lords could still be redistributed during famine. Once that older structure was hollowed out, a failed harvest no longer meant only scarcity. It could mean mass death.",

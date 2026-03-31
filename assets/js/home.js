@@ -1,4 +1,4 @@
-import { siteData } from "./site-data.js?v=20260327b";
+import { siteData } from "./site-data.js?v=20260331d";
 import { setupPage, renderTags, renderLinks, initRevealAnimations, initGallery } from "./site-shell.js?v=20260327b";
 
 setupPage("home");
