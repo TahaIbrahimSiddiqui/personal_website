@@ -416,6 +416,22 @@ export const siteData = {
         "I would still recommend the novel, but I would also say: read it with a pinch of salt when it comes to its politics."
       ],
       favoritePassage: "Behind every trial and sorrow that He makes us shoulder, God has a reason."
+    },
+    {
+      title: "Late Victorian Holocausts",
+      author: "Mike Davis",
+      cover: "assets/images/books/late-victorian-holocausts-cover.jpg",
+      coverAlt: "Book cover for Late Victorian Holocausts by Mike Davis.",
+      intro:
+        "Let me start with the question that kept coming back while I was reading this book: in the nineteenth century, why did the colonised world, from South America to Africa to Indo-China, witness famines on a scale that had been largely unheard of for centuries before? Was it really a coincidence that people in the Mekong Delta were dying of hunger while Vidarbha was seeing similar death at the same time?",
+      reflections: [
+        "This book is Davis's investigation into that question from several angles. One of the most compelling ideas in it is that colonial administrations were saturated with utilitarian ideology. In that view, it made perfect sense for cultivators to grow cash crops like cotton or indigo on their extra land rather than hold grain reserves.",
+        "The problem, of course, is what happens when subsistence fails. In earlier times, grain stored by peasants or by feudal lords could still be redistributed during famine. Once that older structure was hollowed out, a failed harvest no longer meant only scarcity. It could mean mass death.",
+        "I kept reading this as a classic case of superimposing a capitalist structure of extraction onto a rural economy that had been organised around social networks, local obligation, and feudal redistribution.",
+        "It is one of those books that leaves you with a great deal to think about, especially if you want to understand famine not as a natural event alone, but as something shaped by policy, markets, and empire."
+      ],
+      favoritePassage:
+        "If the history of British rule in India were to be condensed into a single fact, it is this: there was no increase in India's per capita income from 1757 to 1947."
     }
   ],
   datasets: [
