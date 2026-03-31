@@ -408,7 +408,7 @@ export const siteData = {
       cover: "assets/images/books/a-thousand-splendid-suns-cover.jpg",
       coverAlt: "Book cover for A Thousand Splendid Suns by Khaled Hosseini.",
       intro:
-        "This book brings back an old question for me: can you admire a novel and still distrust its politics? My answer is yes.",
+        "This book brings back an old question for me: can you admire a novel and still detest its politics? My answer is possibly yes, at least for me.",
       reflections: [
         "I feel that way about Rudyard Kipling's Kim. It is one of the most vivid books on India I have read, but it is also written from the eye of a colonial officer who believed natives needed to be civilised by empire. A Thousand Splendid Suns creates a similar tension for me.",
         "Hosseini gives you a striking sense of Afghanistan: the streets of Kabul, the mountain villages, the emotional weather of the people moving through the book. It is beautifully written and very immersive. You do feel the protagonists' pain as the story unfolds.",

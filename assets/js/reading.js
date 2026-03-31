@@ -1,4 +1,4 @@
-import { siteData } from "./site-data.js?v=20260331a";
+import { siteData } from "./site-data.js?v=20260331b";
 import { setupPage, initRevealAnimations } from "./site-shell.js?v=20260327b";
 
 setupPage("reading");
