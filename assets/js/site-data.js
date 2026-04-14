@@ -14,7 +14,14 @@ export const siteData = {
     { label: "Research", href: "research.html", page: "research" },
     { label: "Writing", href: "writing.html", page: "writing" },
     { label: "Reading", href: "reading.html", page: "reading" },
-    { label: "Resources", href: "resources.html", page: "resources" }
+    { label: "Resources", href: "resources.html", page: "resources" },
+    {
+      label: "GitHub",
+      href: "https://github.com/TahaIbrahimSiddiqui?tab=overview&from=2026-04-01&to=2026-04-14",
+      page: "github",
+      external: true,
+      icon: "github"
+    }
   ],
   pageIntro: {
     research: {

@@ -263,11 +263,26 @@ select {
 }
 
 .site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
   color: var(--ink-soft);
   padding: 0.7rem 0.95rem;
   border-radius: 999px;
   transition: background-color var(--transition), color var(--transition), transform var(--transition);
+}
+
+.site-nav__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.48rem;
+}
+
+.site-nav__icon {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex: 0 0 auto;
 }
 
 .site-nav__link:hover,
