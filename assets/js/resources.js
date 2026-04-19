@@ -1,4 +1,4 @@
-import { siteData } from "./site-data.js?v=20260414a";
+import { siteData } from "./site-data.js?v=20260419a";
 import { setupPage, initRevealAnimations } from "./site-shell.js?v=20260414a";
 
 setupPage("resources");
@@ -97,3 +97,4 @@ page.innerHTML = `
 `;
 
 initRevealAnimations();
+

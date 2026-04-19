@@ -494,6 +494,13 @@ export const siteData = {
       access: "Reference document",
       note: "Supporting agreement document linked from the public dataset page.",
       url: "https://docs.google.com/document/d/1hAVKwAQfp_E6BV6Y4eB8BQBvW0dfZ4cA4Fqm5JtFwF8/edit?usp=sharing"
+    },
+    {
+      title: "adminlineage",
+      type: "PyPI package",
+      access: "Open access",
+      note: "Python package published on PyPI.",
+      url: "https://pypi.org/project/adminlineage/"
     }
   ],
   gallery: [
@@ -569,3 +576,4 @@ export const siteData = {
     }
   }
 };
+
