@@ -499,7 +499,7 @@ export const siteData = {
       title: "adminlineage",
       type: "PyPI package",
       access: "Open access",
-      note: "Python package published on PyPI.",
+      note: "Python package that creates administrative crosswalks between datasets using artificial intelligence.",
       url: "https://pypi.org/project/adminlineage/"
     }
   ],
@@ -576,4 +576,5 @@ export const siteData = {
     }
   }
 };
+
 
