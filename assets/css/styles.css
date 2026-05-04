@@ -815,11 +815,16 @@ p {
   background: transparent;
   padding: 0;
   cursor: pointer;
+  display: block;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
 }
 
 .carousel-slide img {
   width: 100%;
-  max-height: min(62vh, 520px);
+  height: clamp(18rem, 52vw, 32rem);
+  max-height: 62vh;
   object-fit: contain;
   border-radius: 24px;
   background: var(--gallery-frame);
