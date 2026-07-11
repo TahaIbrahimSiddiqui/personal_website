@@ -16,6 +16,12 @@ export const siteData = {
     { label: "Reading", href: "reading.html", page: "reading" },
     { label: "Resources", href: "resources.html", page: "resources" },
     {
+      label: "India Data",
+      href: "https://tahaibrahimsiddiqui.github.io/guidetoindiandata/",
+      page: "india-data",
+      external: true
+    },
+    {
       label: "GitHub",
       href: "https://github.com/TahaIbrahimSiddiqui?tab=overview&from=2026-04-01&to=2026-04-14",
       page: "github",
@@ -442,6 +448,16 @@ export const siteData = {
     }
   ],
   datasets: [
+    {
+      title: "Guide to Indian Data",
+      type: "Public website",
+      access: "Open access",
+      note: "A living catalog of major Indian datasets—surveys, series, academic packages, and open portals—with access notes, variables, and how researchers use them.",
+      url: "https://tahaibrahimsiddiqui.github.io/guidetoindiandata/",
+      image: "assets/images/datasets/india-map.svg",
+      imageAlt: "Map of India used as the cover image for the Guide to Indian Data.",
+      imageFit: "contain"
+    },
     {
       title: "Bihar Flood Inundation Panel Dataset (1998-2021)",
       type: "GitHub repository",
