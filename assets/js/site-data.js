@@ -16,7 +16,7 @@ export const siteData = {
     { label: "Reading", href: "reading.html", page: "reading" },
     { label: "Resources", href: "resources.html", page: "resources" },
     {
-      label: "India Data",
+      label: "Guide to Indian Data",
       href: "https://tahaibrahimsiddiqui.github.io/guidetoindiandata/",
       page: "india-data",
       external: true
